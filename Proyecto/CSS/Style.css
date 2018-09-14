@@ -1,4 +1,195 @@
 body{
   margin: 0px;
-  background: black;
+
+  background: url(../Images/Design/background.jpg) no-repeat center center fixed;
+    background: url(../Images/Design/blue.jpg) no-repeat center center fixed;
+  /*background: url(../Images/Design/triangles-1430105.png) no-repeat center center fixed;*/
+  background-size: cover;
+}
+
+/*************************************************
+*                PROGRESS BAR                    *
+**************************************************/
+.progress_bar{
+  /*width: 100%;*/
+  height: 6px;
+      background: linear-gradient(to right, #f112ac 0%, #40a0cc 50%, #14d62c);
+}
+
+
+
+/*************************************************
+*                     HEADER                     *
+**************************************************/
+
+.img_logo_formatec{
+  display: none !important;
+  width: 200px !important;
+  height: auto !important;
+  margin-top: -2px !important;
+}
+
+.img_logo_formatec_visible{
+  display: block !important;
+}
+
+.menu{
+  border-radius: 0px;
+  background-color: hsla(0, 0%, 15%, 0.89);;
+  border: 0;
+}
+
+.opcion_menu{
+  color:white !important;
+  text-decoration: none;
+}
+
+.opcion_menu:hover{
+  color:#07ffe8 !important;
+}
+
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	background-color: hsla(0, 7%, 94%, 0.9490196078431372) !important;
+	left:0;
+	width:100%;
+	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
+
+.menu-fixed .main-menu ul.navbar-nav li.active a::after {
+    border: 1px solid black !important;
+}
+
+.menu_letras_negras{
+  color:black !important;
+}
+
+.menu_letras_negras:hover{
+  color:#001dec !important;
+}
+
+@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}
+
+@@media (max-widtg;767px) {
+  .menu-fixed .main-menu ul.navbar-nav li.active a::after {
+    border:0px !important;
+  }
+}
+
+.boton_collapse{
+  border-color: #f9f8f8 !important;
+  border: 1px solid white !important;
+  padding: 13px !important;
+  border-radius: 8px !important;
+}
+
+
+/*************************************************
+*                     SECCIONES                  *
+**************************************************/
+.contenedor_padre{
+  background-color: transparent;
+  padding-top: 100px;
+}
+
+.contenedor{
+  width:80%;
+  height: 800px;
+  background-color: white;
+  margin: 0 auto;
+  /*margin-top: 200px;*/
+  padding: 30px;
+  padding-top: 70px;
+}
+
+.contenedor h3 {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 10px;
+  color:#0270ab;
+}
+
+.contenedor hr{
+  border-top: 2px solid #1b1919;
+}
+
+.lineas_disfuminadas{
+  width: 100%;
+  height: 3px;
+  background: -webkit-linear-gradient(left, #fdf7fb 0%, #0270ab 50%, #f8fbf8);
+  background: -o-linear-gradient(left, #fdf7fb 0%, #0270ab 50%, #f8fbf8);
+  background: linear-gradient(to right, #fdf7fb 0%, #0270ab 50%, #f8fbf8);
+}
+
+/*************************************************
+*                 SESSION                        *
+**************************************************/
+.sector_sesion{
+  width: 30px;
+  float: right;
+  background: transparent;
+  height: 40px;
+  position: fixed;
+  right: 0;
+  top: 300px
+}
+
+.sector_sesion div{
+  width: 160px !important;
+  background-color: #3ca072;
+  height: 30px;
+  float: right;
+  margin-right: -160px;
+  margin-top: 2px;
+  transition: 1s;
+  border: 1.8px solid #bbc3ca;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-top: 2px;
+  text-align: center;
+}
+
+.sector_sesion:hover div{
+  transition: 1s;
+  margin-right: 0px;
+}
+/*************************************************
+*                   LOGIN                        *
+**************************************************/
+.contenedor_login{
+  top:50%;
+  width:60%;
+  height: auto;
+  margin: 0 auto;
+  padding: 30px;
+  background: transparent;
+  border-radius: 20px;
+  border:4px solid white;
+}
+
+
+/*************************************************
+*                   FOOTER                       *
+**************************************************/
+
+footer{
+  margin-top: 80px;
+  width: 100%;
+  height: 100px;
+  /*background-color: #252525;*/
+  padding-top: 20px;
+  text-align: center;
+  color:white;
+  background: -webkit-linear-gradient(left, #000000 0%, #2f49c7 50%, #000000);
+  background: -o-linear-gradient(left, #000000 0%, #2f49c7 50%, #000000);
+  background: linear-gradient(to right, #000000 0%, #2f49c7 50%, #000000);
 }

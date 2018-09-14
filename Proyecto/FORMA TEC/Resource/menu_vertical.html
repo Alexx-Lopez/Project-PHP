@@ -1,0 +1,55 @@
+<div id="menu_vertical" class="nav-side-menu">
+  <div class="brand">
+    <span style="font-size: 30px;">Menu</span>
+    <button type="button" class="btn btn-default btn-sm boton_menu" onclick="mover();">
+      <i class="material-icons">list</i>
+      </button>
+  </div>
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+
+      <li>
+        <a href="#">
+          <i class="fa fa-user fa-lg"></i> Perfil
+        </a>
+      </li>
+
+      <li>
+        <a href=""><i class="fas fa-book-reader" style="font-size: 16px;"></i> Alumnos</a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-users fa-lg"></i> Usuarios
+        </a>
+      </li>
+
+      <li data-toggle="collapse" data-target="#cursos">
+        <a href="#"><i class="fas fa-award" style="font-size: 17px;"></i> Cursos<span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="cursos">
+        <li><a href="#">Microsoft</a></li>
+        <li><a href="#">CISCO</a></li>
+      </ul>
+
+      <li>
+        <a href=""><i class="fa fa-calendar" style="font-size: 16px;"></i> Cronograma de Actividades</a>
+      </li>
+
+      <li>
+        <a href=""><i class="fa fa-bar-chart" style="font-size: 18px;"></i> Estadísticas</a>
+      </li>
+
+      <li>
+        <a href=""><i class="fa fa-bullhorn" style="font-size:16px"></i> Publicaciones</a>
+      </li>
+
+      <li>
+        <a href=""><i class="fas fa-envelope" style="font-size: 16px;"></i> Enviar Mensaje</a>
+      </li>
+    </ul>
+  </div>
+</div>
