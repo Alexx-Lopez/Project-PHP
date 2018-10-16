@@ -1,0 +1,161 @@
+.contenedor
+{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.boton_opciones
+{
+  width: 50px;
+  height: 50px;
+  background-color: #b2b1b3;
+}
+
+.boton_opciones span
+{
+  font-size: 20px;
+}
+
+.tabla_botones
+{
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    border-spacing: 50px;
+    border-collapse: separate;
+
+}
+
+.boton_buscar
+{
+  float: left;
+  margin-left: 40%;
+}
+
+.boton_nuevo
+{
+  float: right;
+  margin-right: 40%;
+}
+
+.boton_buscar, .boton_nuevo
+{
+  border-radius: 15px;
+  outline:none;
+}
+
+.boton_buscar:hover
+{
+  background-color: rgba(245, 105, 5, 0.77) !important;
+}
+
+.boton_nuevo:hover
+{
+  background-color: rgba(5, 245, 35, 0.77) !important;
+}
+
+.panel_buscar
+{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tabla_busqueda
+{
+  border: 2px solid #a2a5a4;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabla_busqueda td
+{
+  border:1px solid #a2a5a4;
+  padding: 10px;
+}
+
+.tabla_busqueda thead
+{
+  background-color: #a2a5a4;
+  text-align: center;
+}
+
+.tabla_busqueda .boton_eliminar
+{
+  background-color: #d24f4f;
+  color: white;
+}
+
+.tabla_busqueda .boton_editar
+{
+  background-color: #4fa8d2;
+  color: white;
+}
+
+/************************************
+*          OPCION                   *
+*************************************/
+#opcion
+{
+  margin-top: 20px;
+}
+
+/************************************
+*          LOADERS                  *
+*************************************/
+.preloader img, .preloader_comp img
+{
+  margin: 0 auto;
+  display: block;
+}
+
+.preloader
+{
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.preloader_comp
+{
+  width: 100%;
+  height: 100%;
+  background: #e8e8e8;
+  z-index: 99;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/************************************
+*           FORMULARIO              *
+*************************************/
+.tabla_formulario
+{
+  margin: 0 auto;
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
+
+/************************************
+*           Boton Regresar          *
+*************************************/
+
+.boton_regresar_opcion:hover
+{
+  cursor:pointer;
+}
+
+
+/************************************
+*            FOOTER                 *
+*************************************/
+
+footer
+{
+  background: #2e353d !important;
+  margin-top: 20px !important;
+}

@@ -103,12 +103,18 @@ body{
 
 .contenedor{
   width:80%;
-  height: 800px;
+  height: auto;
   background-color: white;
   margin: 0 auto;
   /*margin-top: 200px;*/
   padding: 30px;
   padding-top: 70px;
+}
+
+.contenedor_contenido{
+  width: 90%;
+  margin: 0 auto;
+  text-align: justify;
 }
 
 .contenedor h3 {
@@ -162,20 +168,136 @@ body{
   transition: 1s;
   margin-right: 0px;
 }
+
+/*************************************************
+*                   OBJECTIVE                    *
+**************************************************/
+.lista_objetivo
+{
+  margin-left: 30px;
+  display: inline;
+}
+
+.lista_objetivo p{
+  display: inline;
+}
+
+.lista_objetivo span
+{
+   color: #0087ff;
+}
+
+.lista_objetivo li
+{
+  list-style-type:  square;
+  list-style-image: url("../Images/Design/mapas-y-banderas.png");
+  margin-left: 30px;
+}
+
+/*************************************************
+*                    BENEFICIOS                  *
+**************************************************/
+
+.barra_beneficio
+{
+  height: 80px;
+  background-image: linear-gradient(to right, #4565ad , #2aa6cc,white);
+  transform: rotate(-4deg);
+  margin-top: 20px;
+  padding: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.barra_beneficio div p
+{
+  font-size: 20px;
+  color:white;
+}
+
+
+/*************************************************
+*             Productos y Servicios              *
+**************************************************/
+
+.barra_producto_servicio
+{
+  height: 40px;
+  background-image: linear-gradient(to right, #4565ad , #2aa6cc,white);
+  padding: 3px;
+  padding-left: 20px;
+  border-bottom-left-radius: 25px;
+}
+
+.barra_producto_servicio div
+{
+  font-size: 20px;
+  color:white;
+}
+
+.lista_producto_servicio li
+{
+  list-style-type:  square;
+  list-style-image: url("../Images/Design/check.png");
+  margin-left: 30px;
+}
+
+.lista_producto_servicio2 li
+{
+  list-style-type: square;
+  list-style-image: url("../Images/Design/microsoft.png") !important;
+}
+
+.lista_producto_servicio3 li
+{
+  list-style-type: square;
+  list-style-image: url("../Images/Design/cisco.png");
+}
+
+
 /*************************************************
 *                   LOGIN                        *
 **************************************************/
 .contenedor_login{
   top:50%;
-  width:60%;
+  width:40%;
   height: auto;
   margin: 0 auto;
   padding: 30px;
-  background: transparent;
+  background: #eaeaea57;
   border-radius: 20px;
   border:4px solid white;
+  margin-top: 200px;
+  color:white;
+  text-align: center;
 }
 
+.contenedor_login div{
+  margin: 0 auto;
+  width: 90%;
+}
+
+.contenedor_login table td
+{
+  text-align: left;
+}
+
+.contenedor_login input
+{
+  color:black;
+}
+
+.boton_login_entrar
+{
+  color: #fff;
+  background-color: #1b4084;
+  border-color: #293296;
+}
+
+.boton_login_entrar:hover
+{
+  background-color: #4b86c1;
+  border-color: #293296;
+}
 
 /*************************************************
 *                   FOOTER                       *

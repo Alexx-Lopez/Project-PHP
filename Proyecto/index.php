@@ -88,7 +88,7 @@
 <body data-spy="scroll" data-target="#navbar-example">
 
 
-  <div id="preloader"></div>
+  <!--<div id="preloader"></div>-->
 
   <div id="c_pbarra" style="overflow: hidden; position: fixed; z-index: 1001;">
     <div id="pbarra"class="progress_bar">
@@ -153,6 +153,13 @@
       <div class="lineas_disfuminadas"></div>
       <h3><b>¿Quienes Somos?</b></h3>
       <div class="lineas_disfuminadas"></div>
+      <br>
+      <br>
+      <div class="contenedor_contenido">
+        <?php
+          include 'Informacion/quienes_somos.html';
+        ?>
+      </div>
     </div>
   </div>
 
@@ -169,6 +176,51 @@
       <div class="lineas_disfuminadas"></div>
       <h3><b>Visión</b></h3>
       <div class="lineas_disfuminadas"></div>
+    </div>
+  </div>
+
+  <div id="objetivos" class="contenedor_padre">
+    <div class="contenedor">
+      <div class="lineas_disfuminadas"></div>
+      <h3><b>Objetivos</b></h3>
+      <div class="lineas_disfuminadas"></div>
+      <br>
+      <br>
+      <div class="contenedor_contenido">
+        <?php
+          include 'Informacion/objetivos.html';
+        ?>
+      </div>
+    </div>
+  </div>
+
+  <div id="Productos_servicios" class="contenedor_padre">
+    <div class="contenedor">
+      <div class="lineas_disfuminadas"></div>
+      <h3><b>Productos y Servicios</b></h3>
+      <div class="lineas_disfuminadas"></div>
+      <br>
+      <br>
+      <div class="contenedor_contenido">
+        <?php
+          include 'Informacion/Productos_servicios.html';
+        ?>
+      </div>
+    </div>
+  </div>
+
+  <div id="beneficios" class="contenedor_padre">
+    <div class="contenedor" style="padding-bottom: 70px;">
+      <div class="lineas_disfuminadas"></div>
+      <h3><b>Beneficios</b></h3>
+      <div class="lineas_disfuminadas"></div>
+      <br>
+      <br>
+      <div class="contenedor_contenido">
+        <?php
+          include 'Informacion/beneficios.html';
+        ?>
+      </div>
     </div>
   </div>
 
