@@ -1,8 +1,14 @@
+//variables
+var pagina_ancho;
+var pagina_alto;
+var tam_nav;
+
+
 $(document).ready(function(){
-  var pagina_ancho=$(window).width();
+  pagina_ancho=$(window).width();
   //var pagina_alto=document.body.scrollHeight;
-  var pagina_alto=$(document).height();
-  var tam_nav=$(window).height();
+  pagina_alto=$(document).height();
+  tam_nav=$(window).height();
   //alert();
   //alert("Ancho: "+pagina_ancho+"  Alto: "+pagina_alto);
 
@@ -24,5 +30,9 @@ $(document).ready(function(){
     document.getElementById("c_pbarra").style.width = porcentaje+"%";
     document.getElementById("pbarra").style.width = pagina_ancho+"px";
   });
-
 });
+
+function actualizar_dimensiones_barra()
+{
+  pagina_alto=$(document).height();
+}

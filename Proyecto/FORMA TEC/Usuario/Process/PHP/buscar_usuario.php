@@ -33,17 +33,16 @@
                     <td>".$fila['id_usuario']."</td>
                     <td>".$fila['username']."</td>
                     <td>
-                      <button type=\"button\" class=\"btn btn-default btn-sm boton_editar\">
+                      <button type=\"button\" class=\"btn btn-default btn-sm boton_editar\"  data-id='".$fila['id_usuario']."' onclick=\"seleccionar_datos('".$fila['id_usuario']."');\">
                         <span class=\"glyphicon glyphicon-pencil\"></span>
                       </button>
                       &nbsp;&nbsp;&nbsp;
-                      <button type=\"button\" class=\"btn btn-default btn-sm boton_eliminar\">
+                      <button type=\"button\" class=\"btn btn-default btn-sm boton_eliminar\" data-toggle=\"modal\" data-target=\"#modaldelete\" data-id='".$fila['id_usuario']."' onclick=\"asignar_id('".$fila['id_usuario']."');\">
                         <span class=\"glyphicon glyphicon-trash\"></span>
                       </button>
                     </td>
                   </tr>";
       }
-
       $salida.="</tbody>
               </table>";
 

@@ -29,17 +29,23 @@
   <script src="../Functions/JS/Messages.js"></script>
 
   <script type="text/javascript">
+    //script que necesiten realizar
+  </script>
 
-</script>
+  <style>
+    /*estilos que deseen crear o modificar*/
+  </style>
 
 
 </head>
 <body>
 
+  <!--loader-->
   <div id="preloader_comp" class="preloader_comp">
     <img src="../../Images/Design/preloader.gif">
   </div>
 
+  <!--llamada de archivos-->
   <?php
   include '../Resource/progress_bar.html';
   include '../Resource/header.html';
@@ -48,18 +54,20 @@
   include '../Functions/PHP/CN.php';
   ?>
 
+  <!--contenedor-->
   <div id="cont" class="contenedor" style="height:auto;">
     <div class="panel panel-primary" style="height: 100%;">
       <div class="panel-heading"><p style="text-align:center;font-size: 20px;"><strong>Administración de Usuarios</strong></p></div>
       <div class="panel-body">
 
+        <!--preloader-->
         <div id="preloader" class="preloader">
           <img src="../../Images/Design/load.gif">
         </div>
 
         <!--se presentan las opciones del usuario-->
         <div id="opcion">
-          <p style="text-align: center;"><i class="fa fa-users fa-lg" style="font-size:200px;"></i></p>
+          <p style="text-align: center;"><!--colocar icono representativo--></i></p>
           <br>
           <button type="button" class="btn boton_opciones boton_buscar" id="boton_buscar"><span class="glyphicon glyphicon-search"></span></button>
           <button type="button" class="btn boton_opciones boton_nuevo" id="boton_nuevo"><span class="glyphicon glyphicon-plus"></span></button>
@@ -94,43 +102,11 @@
           <form method="post" onsubmit="return false" action="return false">
             <h3>Añadir Usuario</h3>
             <table class="tabla_formulario">
-              <tr>
-                <td>Nombre de usuario: </td>
-                <td>
-                  <input type="text" class="form-control" id="name" name="name" size="40">
-                </td>
-              </tr>
-              <tr>
-                <td>Contraseña:</td>
-                <td>
-                  <input type="password" class="form-control" id="pass" name="pass">
-                </td>
-              </tr>
-              <tr>
-                <td>Tipo de Usuario:</td>
-                <td>
-                  <?php
-                  $objeto_con=new Conexion();
-                  $objeto_con->Connect();
-
-                  $sql="select * from tipo_usuario";
-                  $result=mysqli_query($objeto_con->conexion,$sql);
-                  echo "<select class=\"form-control\" name='type' id='type'>";
-
-                  echo "<option value=\"\" selected disable hidden></option>";
-                  while($fila = mysqli_fetch_array($result)){
-                    echo "<option>".$fila['categoria_usuario']."</option>";
-                  }
-                  echo "</select>";
-
-                  $objeto_con->Disconnect();
-                  ?>
-                </td>
-              </tr>
+              <!--Maquetado del formulario-->
             </table>
             <br>
             <br>
-            <input type="button" class="btn btn-default boton_añadir" value="Guardar" name="btn_guardar" onclick="insertar_datos();">
+            <input type="button" class="btn" value="Guardar" name="btn_guardar" style="display:block;margin:0 auto;" onclick="insertar_datos();">
           </form>
         </div>
 
@@ -152,17 +128,13 @@
   include '../Resource/Modal_eliminar.html';
   ?>
 
+  <!--contenedor en donde se ingresara el modal para edicion-->
   <div id="modales">
   </div>
-
-
 
   <?php
   include '../Resource/footer.html';
   ?>
-
-
-
 
   <script type="text/javascript">
 
@@ -172,10 +144,10 @@
   });
 
   //variable que almacena el id de la seleccion de la tabla
-  var usuario_id;
+  var tabla_id;
   function asignar_id(identificador)
   {
-    usuario_id=identificador;
+    tabla_id=entificador;
   }
 
 
@@ -235,10 +207,7 @@
       //se actualiza la altura de la pagina para que trabaje adecuadamente la barra de scroll
       actualizar_dimensiones_barra();
     },1000);
-
-
   }
-
   </script>
 
 

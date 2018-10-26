@@ -194,6 +194,7 @@ header{
   position: fixed;
   width: 100%;
   top: 0px;
+  z-index: 999;
 }
 
 .img_logo_formatec{
@@ -219,7 +220,7 @@ header{
   margin-right: 0px;
   margin:0 auto;
   float: none;
-  margin-top: 80px;
+  margin-top: 70px;
   transition: 1.5s;
 }
 

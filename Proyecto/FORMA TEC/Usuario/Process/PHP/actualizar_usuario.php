@@ -1,8 +1,6 @@
 <?php
-if(isset($_POST['btn_guardar']))
-{
-  //se crea una variable POST para guardar el estado
-  $_POST['NUEVO']=true;
+  include "../../../Functions/PHP/CN.php";
+  include '../../../Functions/PHP/validation_function.php';
 
   //banderas
   $bandera=true;
@@ -41,18 +39,17 @@ if(isset($_POST['btn_guardar']))
   {
     echo "
     <script>
-      setTimeout(function(){
         Mensaje_Error(\"Error, los campos: <?php echo $campos; ?> se encuentran vacios\");
-      },1000);
     </script>";
-
   }else
   {
     //se procede a analizar los textos de los campos que respeten ciertas normas
     $name=$_POST['name'];
     $pass=$_POST['pass'];
     $type=$_POST['type'];
+    $id=$_POST['id'];
     $id_type;
+
 
     if(!texto($name))
     {
@@ -76,32 +73,24 @@ if(isset($_POST['btn_guardar']))
         }
       }
 
-      //se procede a realizar la insercion
-      $sql = "INSERT INTO usuario VALUES(NULL,'$name','$pass',$id_type)";
+      //se procede a realizar la actualizacion
+      $sql = "UPDATE usuario SET username='$name', contrasena='$pass', id_tipo_usuario=$id_type WHERE id_usuario=$id";
 
-      if ($objeto_con->conexion->query($sql) === TRUE) {
+      if ($objeto_con->conexion->query($sql) === TRUE){
         //Se procede a colocar null las variables POST
-        $_POST['name']=NULL;
-        $_POST['pass']=NULL;
-        $_POST['type']=NULL;
-
         echo "
           <script>
-            setTimeout(function(){
-              Mensaje_Succes('Usuario Ingresado');
-            },1000);
+              buscar_datos(); //se realiza una busqueda
+              Mensaje_Succes('Usuario Actualizado');
           </script>";
-      } else {
+      }else{
+        $error=$objeto_con->conexion->error;
         echo "
           <script>
-            setTimeout(function(){
-              Mensaje_Error(\"Error: \".$sql.\"<br>\".$conexion->error);
-            },1000);
+              Mensaje_Error(\"Error: ".$error."\");
           </script>";
       }
-
       $objeto_con->Disconnect();
     }
   }
-}
 ?>

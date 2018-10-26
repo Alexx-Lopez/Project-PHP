@@ -41,7 +41,11 @@
 .boton_buscar, .boton_nuevo
 {
   border-radius: 15px;
-  outline:none;
+}
+
+.boton_buscar:focus, .boton_nuevo:focus
+{
+  outline: none !important;
 }
 
 .boton_buscar:hover
@@ -102,6 +106,25 @@
 }
 
 /************************************
+*           ACTUALIZAR              *
+*************************************/
+.boton_actualizar
+{
+  margin: 0 auto;
+  display: block;
+  background-color: #3636d4;
+  color:white;
+}
+
+.boton_añadir
+{
+  margin: 0 auto;
+  display: block;
+  background-color: green;
+  color:white;
+}
+
+/************************************
 *          LOADERS                  *
 *************************************/
 .preloader img, .preloader_comp img
@@ -139,14 +162,55 @@
   border-collapse: separate;
 }
 
+/************************************
+*        MODALUPDATE                *
+*************************************/
+.tabla_update
+{
+  border: 2px solid #a2a5a4;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabla_update thead
+{
+  background-color: #a2a5a4;
+  text-align: center;
+}
+
+.tabla_update td
+{
+  padding: 10px;
+}
+
 
 /************************************
 *           Boton Regresar          *
 *************************************/
 
+.boton_regresar_opcion
+{
+  border: solid 4px #3ce412;
+  border-radius: 500px;
+  padding: 2px;
+}
+
 .boton_regresar_opcion:hover
 {
   cursor:pointer;
+  border: solid 4px #da3a58;
+  border-radius: 500px;
+  padding: 2px;
+}
+
+/************************************
+*            ICONOS                 *
+*************************************/
+
+.glyphicon {
+    position: initial;
 }
 
 
