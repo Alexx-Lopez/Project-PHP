@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8">
+  <!--<meta charset="utf-8">-->
+  <meta charset="iso-8859-1">
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,10 +28,11 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <script src="../Functions/JS/Messages.js"></script>
+  <script src="../Functions/JS/validation.js"></script>
 
   <script type="text/javascript">
 
-</script>
+  </script>
 
 
 </head>
@@ -104,6 +106,12 @@
                 <td>Contraseña:</td>
                 <td>
                   <input type="password" class="form-control" id="pass" name="pass">
+                </td>
+              </tr>
+              <tr>
+                <td>Verificar contraseña:</td>
+                <td>
+                  <input type="password" class="form-control" id="pass2" name="pass">
                 </td>
               </tr>
               <tr>

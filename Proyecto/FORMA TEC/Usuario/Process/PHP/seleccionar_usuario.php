@@ -14,8 +14,6 @@
   $sql2="SELECT * FROM tipo_usuario";
   $resultado2=$objeto_con->conexion->query($sql2);
 
-
-
   if($resultado->num_rows>0)
   {
     $fila = $resultado->fetch_assoc();
@@ -53,7 +51,7 @@
                 </tr>
                 <tr>
                   <td></td>
-                  <td><input type=\"password\" class=\"form-control\"></td>
+                  <td><input type=\"password\" class=\"form-control\" name=\"pass2_update\" id=\"pass2_update\"></td>
                 </tr>
                 <tr>
                   <td><b>Categoría</b></td>

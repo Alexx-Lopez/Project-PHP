@@ -18,6 +18,7 @@ class Conexion
   function Connect()
   {
     $this->conexion=mysqli_connect("127.0.0.1:33060","root","$this->password","$this->database");
+    $this->conexion->set_charset("utf8"); //control del formato del texto
 
     if(!$this->conexion)
     {

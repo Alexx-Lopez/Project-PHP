@@ -43,12 +43,13 @@ function insertar_datos()
   //se toman los valores de los input
   var name=$("#name").val();
   var pass=$("#pass").val();
+  var pass2=$("#pass2").val();
   var type=$("#type").val();
 
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(name==null || name=="" || pass=="" || pass==null || type=="" || type==null)
+  if(name==null || name=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -57,7 +58,7 @@ function insertar_datos()
   //se verificar que los datos tengan el formato requerido
   if(bandera==true)
   {
-    /*
+    //verificar que el texto
     if(!verificar_texto(name))
     {
       Mensaje_Warning("Solo se permiten letras");
@@ -66,9 +67,15 @@ function insertar_datos()
 
     if(!verificar_contraseña_usuario(pass))
     {
-      Mensaje_Warning("La contraseña no contiene el formato apropiado");
+      Mensaje_Warning("Contraseña insegura, al menos 8 letras, 2 numeros y 1 caracter especial");
       bandera2=false;
-    }*/
+    }
+
+    if(pass!=pass2)
+    {
+      Mensaje_Warning("Las contraseñas no coinciden");
+      bandera2=false;
+    }
 
     if(bandera2==true)
     {
@@ -147,6 +154,7 @@ function actualizar_datos(id_usuario)
   //se toman los valores de los input
   var name=$("#name_update").val();
   var pass=$("#pass_update").val();
+  var pass2=$("#pass2_update").val();
   var type=$("#type_update").val();
   var id=id_usuario;
 
@@ -155,7 +163,7 @@ function actualizar_datos(id_usuario)
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(name==null || name=="" || pass=="" || pass==null || type=="" || type==null || id=="" || id==null)
+  if(name==null || name=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null || id=="" || id==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -164,7 +172,6 @@ function actualizar_datos(id_usuario)
   //se verificar que los datos tengan el formato requerido
   if(bandera==true)
   {
-    /*
     if(!verificar_texto(name))
     {
       Mensaje_Warning("Solo se permiten letras");
@@ -173,9 +180,15 @@ function actualizar_datos(id_usuario)
 
     if(!verificar_contraseña_usuario(pass))
     {
-      Mensaje_Warning("La contraseña no contiene el formato apropiado");
+      Mensaje_Warning("Contraseña insegura, al menos 8 letras, 2 numeros y 1 caracter especial");
       bandera2=false;
-    }*/
+    }
+
+    if(pass!=pass2)
+    {
+      Mensaje_Warning("Las contraseñas no coinciden");
+      bandera2=false;
+    }
 
     if(bandera2==true)
     {

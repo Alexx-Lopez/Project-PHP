@@ -15,19 +15,30 @@
   //funcion de validacion para textos que contengan solo letras
   function texto($cadena)
   {
-    if(preg_match("/^[a-zA-Z áéíóú]*$/",$cadena))
+    if(preg_match("/^[a-zA-Z áéíóúñäëïöü]*$/",$cadena))
     {
       return true;
     }else
     {
-?>
-      <script>
-        setTimeout(function(){
-          Mensaje_Warning("Advertencia, solo se permite letras");
-        },1000);
-      </script>
-<?php
+      echo "<script>
+              Mensaje_Warning(\"Advertencia, solo se permite letras\");
+            </script>";
       return false;
     }
   }
+
+  function verificar_contraseña_usuario($cadena)
+  {
+    if(preg_match("/^(?=.*?[A-z áéíóú]{8,})(?=.*?[0-9]{2,})(?=.*?[!\"#$%&\/()=?¡¿'*{}@]{1,}).+$/",$cadena))
+    {
+      return true;
+    }else
+    {
+      echo "<script>
+              Mensaje_Warning(\"Contraseña insegura, al menos 8 letras, 2 numeros y 1 caracter especial\");
+            </script>";
+      return false;
+    }
+  }
+
 ?>
