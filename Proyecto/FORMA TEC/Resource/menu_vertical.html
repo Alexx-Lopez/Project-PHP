@@ -21,15 +21,22 @@
         <a href=""><i class="fas fa-book-reader" style="font-size: 16px;"></i> Alumnos</a>
       </li>
 
-      <li>
+      <li data-toggle="collapse" data-target="#M_usuarios">
         <a href="#">
           <i class="fa fa-users fa-lg"></i> Usuarios
         </a>
       </li>
+      <ul class="sub-menu collapse" id="M_usuarios">
+        <li><a href="../Usuario/Admin_usuario.php">Usuarios</a></li>
+        <li><a href="../Tipo_Usuario/Admin_tipo_usuario.php">Tipo de Usuarios</a></li>
+      </ul>
 
       <li data-toggle="collapse" data-target="#cursos">
-        <a href="#"><i class="fas fa-award" style="font-size: 17px;"></i> Cursos<span class="arrow"></span></a>
+        <a href="#">
+          <i class="fas fa-award" style="font-size: 17px;"></i> Cursos<span class="arrow"></span>
+        </a>
       </li>
+
       <ul class="sub-menu collapse" id="cursos">
         <li><a href="#">Microsoft</a></li>
         <li><a href="#">CISCO</a></li>
