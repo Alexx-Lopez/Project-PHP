@@ -1,3 +1,5 @@
+<?php session_start()?>
+<?php require '../../Login/verificar_sesion.php'?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -12,15 +14,15 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="../CSS/Style.css">
-  <link rel="stylesheet" type="text/css" href="../CSS/style_admin.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/Style.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/style_admin.css">
 </head>
 <body>
   <?php
-  include 'Resource/progress_bar.html';
-  include 'Resource/header.html';
-  include 'Resource/boton_mostrar_menu.html';
-  include 'Resource/menu_vertical.html';
+  include '../Resource/progress_bar.html';
+  include '../Resource/header.php';
+  include '../Resource/boton_mostrar_menu.html';
+  include '../Resource/menu_vertical.html';
   ?>
 
   <div id="cont" class="contenedor">
@@ -28,7 +30,7 @@
   </div>
 
   <?php
-  include 'Resource/footer.html';
+  include '../Resource/footer.html';
   ?>
 
   <!-- jQuery library -->
@@ -38,12 +40,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!--menu vertical-->
-  <script src="../JS/vertical_main.js"></script>
+  <script src="../../JS/vertical_main.js"></script>
 
   <!--progress_bar-->
-  <script src="../JS/barra.js"></script>
+  <script src="../../JS/barra.js"></script>
 
   <!--funcion js para controlar el footer-->
-  <script src="../JS/control_footer.js"></script>
+  <script src="../../JS/control_footer.js"></script>
 </body>
 </html>

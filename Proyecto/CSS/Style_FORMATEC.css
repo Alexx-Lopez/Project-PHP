@@ -162,6 +162,27 @@
   border-collapse: separate;
 }
 
+.tabla_permisos
+{
+  border: 2px solid #a2a5a4;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabla_permisos thead
+{
+  background-color: #a2a5a4;
+  text-align: center;
+}
+
+.tabla_permisos td
+{
+  border: 1px solid #a2a5a4;
+  padding: 10px;
+}
+
 /************************************
 *        MODALUPDATE                *
 *************************************/

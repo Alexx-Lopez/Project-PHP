@@ -14,8 +14,8 @@
       -->
       </ul>
       <ul class="nav navbar-nav navbar-right" style="float: right !important;">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Usuario </a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir </a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php $u=$_SESSION['USUARIO_login'];echo $u;?></a></li>
+        <li><a href="../../Login/Cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span> Salir </a></li>
       </ul>
     </div>
   </nav>
