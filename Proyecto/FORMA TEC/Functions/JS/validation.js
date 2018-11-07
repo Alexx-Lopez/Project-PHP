@@ -1,6 +1,6 @@
 function verificar_texto(cadena) {
   var valor = cadena;
-  var expreg = /^[a-zA-Z áéíóúñäëïöü]*$/;
+  var expreg = /^[a-zA-Z ÁáÉéÍíÓóÚúñäëïöü]*$/;
 
   if(expreg.test(valor))
   {
@@ -32,4 +32,37 @@ function verificar_contraseña_complejidad(cadena)
   var re = new RegExp("\\w+\\s","g");
   */
   return true;
+}
+
+function verificar_telefono(cadena){
+  var valor=cadena;
+  var expreg=/[2,6,7]{1}\d{3}\-\d{4}/;
+
+  if (expreg.test(valor)) {
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function verificar_dui(cadena){
+  var valor=cadena;
+  var expreg=/\d{8}\-\d{1}/;
+
+  if (expreg.test(valor)) {   
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function verificar_numero(cadena){
+  var valor=cadena;
+  var expreg=/^[1-9]\d*$/;
+
+  if (expreg.test(valor)) {
+    return true;
+  }else{
+    return false;
+  }
 }
