@@ -11,13 +11,13 @@ class Conexion
   {
     $this->servername= "127.0.0.1:33060";
     $this->username= "root";
-    $this->password = "";
+    $this->password = "123456";
     $this->database= "forma_tec";
   }
 
   function Connect()
   {
-    $this->conexion=mysqli_connect("127.0.0.1:33060","root","$this->password","$this->database");
+    $this->conexion=mysqli_connect("localhost:3306","root","$this->password","$this->database");
     $this->conexion->set_charset("utf8"); //control del formato del texto
 
     if(!$this->conexion)

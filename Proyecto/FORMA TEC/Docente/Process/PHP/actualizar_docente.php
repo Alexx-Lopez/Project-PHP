@@ -137,6 +137,7 @@ if($bandera==false)
   $edad=$_POST['edad'];
   $dui=$_POST['dui'];
   $profesion=$_POST['profesion'];
+  $id=$_POST['id'];
 
   //en el caso todo cumpla con lo estipulado se procede a realizar el ingreso
   if($bandera2){
@@ -144,7 +145,7 @@ if($bandera==false)
     $objeto_con->Connect();    
 
     //primero se realiza una verificación que no haya un registro con el mismo Nombre
-    $sql="SELECT * FROM docente WHERE (nombres_docente='$nombres' AND apellidos_docente='$apellidos' AND fecha_nacimiento='$fecha_nac') OR dui='$dui'";   
+    $sql="SELECT * FROM docente WHERE ((nombres_docente='$nombres' AND apellidos_docente='$apellidos') OR dui='$dui') AND id_docente <> $id";   
     $regis=$objeto_con->conexion->query($sql);
 
     //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
