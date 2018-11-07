@@ -204,6 +204,8 @@ function actualizar_datos(id_docente)
   var dui=$('#dui_update').val();
   var profesion=$('#profesion_update').val();
   var id=id_docente;
+
+  console.log(sexo);
   
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 

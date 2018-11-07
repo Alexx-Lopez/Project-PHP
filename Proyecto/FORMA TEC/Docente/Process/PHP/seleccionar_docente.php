@@ -54,15 +54,15 @@
                   </tr>
                 </thead>
                 <tr>
-                  <td><b>ID:</b></td>
+                  <td><b>ID</b></td>
                   <td><p style=\"margin:0 !important;\">$id</p></td>
                 </tr>
                 <tr>
-                  <td><b>Nombres:</b></td>
+                  <td><b>Nombres</b></td>
                   <td><input type=\"text\" class=\"form-control\" name=\"nombres_update\" id=\"nombres_update\" value=\"$nombres\" size=\"40\"></td>
                 </tr>
                 <tr>
-                  <td><b>Apellidos:</b></td>
+                  <td><b>Apellidos</b></td>
                   <td><input type=\"text\" class=\"form-control\" name=\"apellidos_update\" id=\"apellidos_update\" value=\"$apellidos\"></td>
                 </tr>
                 <tr>
@@ -86,12 +86,23 @@
                   <td><input type=\"text\" class=\"form-control\" name=\"municipio_update\" id=\"municipio_update\" value=\"$municipio\"></td>
                 </tr>
                 <tr>
-                  <td>Sexo:</td>
+                  <td><b>Sexo</b></td>
                   <td>
-                    <select class=\"form-control\" name=\"sexo_update\" id=\"sexo_update\" value=\"$sexo\">                    
-                      <option value=\"M\">Masculino</option>
+                    <select class=\"form-control\" name=\"sexo_update\" id=\"sexo_update\">";
+                    
+                    if ($sexo=='M') {
+                      $salida.="
+                      <option value=\"M\" selected>Masculino</option>
                       <option value=\"F\">Femenino</option>
-                    </select>
+                      ";
+                    }else{
+                      $salida.="
+                      <option value=\"M\">Masculino</option>
+                      <option value=\"F\" selected>Femenino</option>
+                      ";
+                    }
+
+    $salida.="       </select>
                   </td>
                 </tr>
                 <tr>
