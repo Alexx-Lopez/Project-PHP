@@ -10,13 +10,13 @@
   $sql=/*consulta para extraer el registro que contenga el id dado*/;
 
   $sql="SELECT * FROM curso WHERE id_curso=$id";
-  
   $resultado=$objeto_con->conexion->query($sql);
 
   $sql2="SELECT * FROM tipo_curso";
   $resultado2=$objeto_con->conexion->query($sql2);
 
-  $resultado=$objeto_con->conexion->query($sql);
+  $sql3="SELECT * FROM nivel";
+  $resultado3=$objeto_con->conexion->query($sql3);
 
   if($resultado->num_rows>0)
   {
@@ -80,7 +80,7 @@
                     <select class=\"form-control\" name='nivel_update' id='nivel_update'>
                       <option value=\"\" selected disable hidden></option>;";
 
-                      while($categoria_nivel = $resultado2->fetch_assoc()){
+                      while($categoria_nivel = $resultado3->fetch_assoc()){
                         if($id_nivel==$categoria_nivel['id_nivel'])
                         {
                           $salida.= "<option selected>".$categoria_nivel['nombre_nivel']."</option>";

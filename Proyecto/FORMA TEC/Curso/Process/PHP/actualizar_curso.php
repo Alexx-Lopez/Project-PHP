@@ -58,11 +58,9 @@ if($bandera==false)
   $nombre_curso=$_POST['nombre_curso'];
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
-  $id=$_POST['id'];
-  $id_tipo_curso;
   $nivel=$_POST['nivel'];
-  $id=$_POST['id2'];
-  $id_nivel;
+  $id=$_POST['id'];
+  $id_tipo;
 
 
 
@@ -77,7 +75,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se verifica que no exista algun registro con ese mismo nombre diferente al que se pretende actualizar
-    $sql="SELECT * from curso WHERE nombre_curso='$nombre_curso' and id_curso!=$id and id_nivel!=$id2 ";
+    $sql="SELECT * from curso WHERE nombre_curso='$nombre_curso' and id_curso!=$id";
     $regis=$objeto_con->conexion->query($sql);
 
      //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
@@ -92,7 +90,7 @@ if($bandera==false)
        if ($result->num_rows > 0)
        {
          while($row = mysqli_fetch_assoc($result)) {
-           $id_type=$row["id_curso"];
+           $id_tipo=$row["id_tipo_curso"];
          }
        }
 
@@ -104,19 +102,19 @@ if($bandera==false)
        if ($result->num_rows > 0)
        {
          while($row = mysqli_fetch_assoc($result)) {
-           $id_type=$row["id_nivel"];
+           $id_tipo=$row["id_nivel"];
          }
        }
  
        //se procede a realizar la actualizacion
-       $sql = "UPDATE curso SET nombre_curso='$nombre_curso', descripcion='$descripcion', id_tipo_curso=$id_tipo_curso WHERE id_tipo_curso=$id, id_nivel=$id_nivel WHERE id_nivel=$id2";
+       $sql = "UPDATE curso SET nombre_curso='$nombre_curso', descripcion='$descripcion', tipo_curso=$tipo_curso, nivel=$nivel WHERE id_curso=$id";
  
        if ($objeto_con->conexion->query($sql) === TRUE){
          //Se procede a colocar null las variables POST
          echo "
          <script>
          buscar_datos(); //se realiza una busqueda
-         Mensaje_Succes('Usuario Actualizado');
+         Mensaje_Succes('Curso Actualizado');
          </script>";
        }else{
          $error=$objeto_con->conexion->error;

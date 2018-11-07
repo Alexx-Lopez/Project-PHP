@@ -23,12 +23,6 @@ if(verificar_empty('descripcion'))
   $campos.="Descripcion,";
 }
 
-if(verificar_empty('type'))
-{
-  $bandera=false;
-  $campos.="Tipo de usuario, ";
-}
-
 if(verificar_empty('tipo_curso'))
 {
   $bandera=false;
@@ -54,9 +48,8 @@ if($bandera==false)
   $nombre_curso=$_POST['nombre_curso'];
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
-  $id_tipo_curso;
   $nivel=$_POST['nivel'];
-  $id_nivel;
+  $id_tipo;
 
   if(!texto($nombre_curso))
   {
@@ -89,7 +82,7 @@ if($bandera==false)
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_type=$row["id_tipo_curso"];
+          $id_tipo=$row["id_tipo_curso"];
         }
       }
 
@@ -103,12 +96,12 @@ if($bandera==false)
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_type=$row["id_nivel"];
+          $id_tipo=$row["id_nivel"];
         }
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO curso VALUES(NULL,'$nombre_curso','$descripcion',$id_titpo_curso, $id_nivel)";
+      $sql = "INSERT INTO curso VALUES(NULL,'$nombre_curso','$descripcion',$tipo_curso, $nivel)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
@@ -119,7 +112,7 @@ if($bandera==false)
         $(\"#tipo_curso\").val(\"\");
         $(\"#nivel\").val(\"\");
         buscar_datos();
-        Mensaje_Succes('Usuario Ingresado');
+        Mensaje_Succes('Curso Ingresado');
         </script>";
       } else {
         $error=$objeto_con->conexion->error;
