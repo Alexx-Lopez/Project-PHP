@@ -9,7 +9,7 @@ class Conexion
 
   function __construct()
   {
-    $this->servername= "127.0.0.1:33060";
+    $this->servername= "localhost:3306";
     $this->username= "root";
     $this->password = "";
     $this->database= "forma_tec";
@@ -17,7 +17,7 @@ class Conexion
 
   function Connect()
   {
-    $this->conexion=mysqli_connect("127.0.0.1:33060","root","$this->password","$this->database");
+    $this->conexion=mysqli_connect("localhost:3306","root","$this->password","$this->database");
     $this->conexion->set_charset("utf8"); //control del formato del texto
 
     if(!$this->conexion)
