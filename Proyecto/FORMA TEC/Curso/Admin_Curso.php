@@ -27,6 +27,7 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <script src="../Functions/JS/Messages.js"></script>
+  <script src="../Functions/JS/validation.js"></script>
 
   <script type="text/javascript">
     //script que necesiten realizar

@@ -50,7 +50,7 @@ if($bandera==false)
   $tipo_curso=$_POST['tipo_curso'];
   $nivel=$_POST['nivel'];
   $id_tipo;
-
+  
   if(!texto($nombre_curso))
   {
     $bandera2=false;
