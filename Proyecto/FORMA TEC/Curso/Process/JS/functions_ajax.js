@@ -68,7 +68,7 @@ function insertar_datos()
     if(bandera2==true)
     {
       $.ajax({
-        url:'Process/PHP/agregar_usuario.php',
+        url:'Process/PHP/agregar_curso.php',
         type:'POST',
         dataType:'html',
         data:"nombre_curso="+nombre_curso+"&descripcion="+descripcion+"&tipo_curso="+tipo_curso+"&nivel="+nivel,
@@ -86,13 +86,13 @@ function insertar_datos()
 
 function eliminar_datos()
 {
-  if(tabla_id!=null && tabla_id!="")
+  if(curso_id!=null && curso_id!="")
   {
     $.ajax({
-      url:'Process/PHP/eliminar_tabla.php',
+      url:'Process/PHP/eliminar_curso.php',
       type:'POST',
       dataType:'html',
-      data:"id="+tabla_id,
+      data:"id="+curso_id,
       success: function(respuesta){
         $("#notificaciones").html(respuesta);
       }
@@ -112,7 +112,7 @@ function seleccionar_datos(id)
   if(id!=null && id!="")
   {
     $.ajax({
-      url:'Process/PHP/seleccionar_tabla.php',
+      url:'Process/PHP/seleccionar_curso.php',
       type:'POST',
       dataType:'html',
       data:"id="+id,
@@ -133,14 +133,14 @@ function seleccionar_datos(id)
 /*************************************************************************/
 
 
-function actualizar_datos(id_tabla)
+function actualizar_datos(id_curso)
 {
   //codigo para validar datos del lado del cliente
       $.ajax({
-        url:'Process/PHP/actualizar_tabla.php',
+        url:'Process/PHP/actualizar_curso.php',
         type:'POST',
         dataType:'html',
-        data:"id="+id_tabla,
+        data:"id="+id_curso,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }
