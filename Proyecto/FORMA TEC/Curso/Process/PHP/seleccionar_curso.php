@@ -6,9 +6,7 @@
 
   $salida="";
 
-  $id=$_POST['id']; //este id corresponde al id del registro que se desea actualizar
-  $sql=/*consulta para extraer el registro que contenga el id dado*/;
-
+  $id=$_POST['id'];
   $sql="SELECT * FROM curso WHERE id_curso=$id";
   $resultado=$objeto_con->conexion->query($sql);
 
