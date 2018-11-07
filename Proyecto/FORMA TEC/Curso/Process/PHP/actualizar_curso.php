@@ -59,7 +59,7 @@ if($bandera==false)
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
   $nivel=$_POST['nivel'];
-  $id=$_POST['id'];
+  //$id=$_POST['id'];
   $id_tipo;
 
 

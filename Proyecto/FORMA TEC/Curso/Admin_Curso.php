@@ -67,7 +67,7 @@
 
         <!--se presentan las opciones del usuario-->
         <div id="opcion">
-          <p style="text-align: center;"><!--colocar icono representativo--></i></p>
+          <p style="text-align: center;"><i class="fa fa-book" style="font-size:200px;"></i></p>
           <br>
           <button type="button" class="btn boton_opciones boton_buscar" id="boton_buscar"><span class="glyphicon glyphicon-search"></span></button>
           <button type="button" class="btn boton_opciones boton_nuevo" id="boton_nuevo"><span class="glyphicon glyphicon-plus"></span></button>

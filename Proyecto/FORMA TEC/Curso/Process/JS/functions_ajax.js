@@ -133,14 +133,14 @@ function seleccionar_datos(id)
 /*************************************************************************/
 
 
-function actualizar_datos(id_curso)
+function actualizar_datos(curso_id)
 {
   //codigo para validar datos del lado del cliente
       $.ajax({
         url:'Process/PHP/actualizar_curso.php',
         type:'POST',
         dataType:'html',
-        data:"id="+id_curso,
+        data:"id="+curso_id,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

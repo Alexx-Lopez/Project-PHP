@@ -7,7 +7,7 @@ $(buscar_datos());
 function buscar_datos(consulta)
 {
   $.ajax({
-    url:'Process/PHP/buscar_tabla.php',
+    url:'Process/PHP/buscar_nota.php',
     type:'POST',
     dataType:'html',
     data:{consulta:consulta},
@@ -37,28 +37,47 @@ $(document).on('keyup','#i_busqueda',function()
 /*************************************************************************/
 function insertar_datos()
 {
-  //codigo para validar datos del lado del cliente
+  var bandera=true;
+  var bandera2=true;
 
-  //en el caso de querer mandar mas de un dato por el data de ajax se puede realizar
-  //concatenandolo con el signo + pero desde el segundo dato hay que colocar el signo &
-  //por ejemplo se tienen las variables d1 d2 y d3 estos datos corresponde al d_formulario
-  //del que se desea realizar el proceso entonces para poder hacer el ajax correctamente
-  //tendría que ser
-  //..
-  //data:"d1="+d1+"&d2="+d2+"&d3="+d3,
-  //..
-  //los que se encuentran entre comillas pueden llamarse como ustedes deseen pero esos nombres
-  //tienen que colocar en el postback del documento que estan dirigiendo en el url
+  //se toman los valores de los input
+  var nota=$("#nota").val();
+  var curso=$("#curso").val();
+  var alumno=$("#alumno").val();
+  var resultado=$("#resultado").val();
 
+  //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
+
+  //se verifican que los campos no esten solos
+  if(nombre_nota=="" || nombre_nota==null || curso=="" || curso==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
+  {
+    Mensaje_Error("No se permiten campos vacios");
+    bandera=false;
+  }
+
+  //se verificar que los datos tengan el formato requerido
+  if(bandera==true)
+  {
+    //verificar que el texto
+    if(!verificar_texto(nombre_nota))
+    {
+      Mensaje_Warning("Solo se permiten letras");
+      bandera2=false;
+    }
+
+    if(bandera2==true)
+    {
       $.ajax({
-        url:'Process/PHP/agregar_tabla.php',
+        url:'Process/PHP/agregar_nota.php',
         type:'POST',
         dataType:'html',
-        data:,
+        data:"nombre_nota="+nombre_nota+"&curso="+curso+"&alumno="+alumno+"&resultado="+resultado,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }
       });
+    }
+  }
 }
 
 /*************************************************************************/
@@ -67,13 +86,13 @@ function insertar_datos()
 
 function eliminar_datos()
 {
-  if(tabla_id!=null && tabla_id!="")
+  if(nota_id!=null && nota_id!="")
   {
     $.ajax({
-      url:'Process/PHP/eliminar_tabla.php',
+      url:'Process/PHP/eliminar_nota.php',
       type:'POST',
       dataType:'html',
-      data:"id="+tabla_id,
+      data:"id="+nota_id,
       success: function(respuesta){
         $("#notificaciones").html(respuesta);
       }
@@ -93,7 +112,7 @@ function seleccionar_datos(id)
   if(id!=null && id!="")
   {
     $.ajax({
-      url:'Process/PHP/seleccionar_tabla.php',
+      url:'Process/PHP/seleccionar_nota.php',
       type:'POST',
       dataType:'html',
       data:"id="+id,
@@ -114,14 +133,14 @@ function seleccionar_datos(id)
 /*************************************************************************/
 
 
-function actualizar_datos(id_tabla)
+function actualizar_datos(nota_id)
 {
   //codigo para validar datos del lado del cliente
       $.ajax({
-        url:'Process/PHP/actualizar_tabla.php',
+        url:'Process/PHP/actualizar_nota.php',
         type:'POST',
         dataType:'html',
-        data:,
+        data:"id="+nota_id,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

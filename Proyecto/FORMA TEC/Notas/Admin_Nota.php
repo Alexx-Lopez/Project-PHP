@@ -57,7 +57,7 @@
   <!--contenedor-->
   <div id="cont" class="contenedor" style="height:auto;">
     <div class="panel panel-primary" style="height: 100%;">
-      <div class="panel-heading"><p style="text-align:center;font-size: 20px;"><strong>Administración de Usuarios</strong></p></div>
+      <div class="panel-heading"><p style="text-align:center;font-size: 20px;"><strong>Administración de Notas</strong></p></div>
       <div class="panel-body">
 
         <!--preloader-->
@@ -65,9 +65,9 @@
           <img src="../../Images/Design/load.gif">
         </div>
 
-        <!--se presentan las opciones del usuario-->
+        <!--se presentan las opciones del Notas-->
         <div id="opcion">
-          <p style="text-align: center;"><!--colocar icono representativo--></i></p>
+          <p style="text-align: center;"><i class="fa fa-sort" style="font-size:200px;"></i></p>
           <br>
           <button type="button" class="btn boton_opciones boton_buscar" id="boton_buscar"><span class="glyphicon glyphicon-search"></span></button>
           <button type="button" class="btn boton_opciones boton_nuevo" id="boton_nuevo"><span class="glyphicon glyphicon-plus"></span></button>
@@ -100,13 +100,13 @@
         <div id="formulario">
           <i class="fas fa-arrow-circle-left boton_regresar_opcion" style="font-size:30px;" id="regre_nuevo_opcion"></i>
           <form method="post" onsubmit="return false" action="return false">
-            <h3>Añadir Usuario</h3>
+            <h3>Añadir Nota</h3>
             <table class="tabla_formulario">
               <!--Maquetado del formulario-->
               <tr>
                 <td>Nota: </td>
                 <td>
-                  <input type="number" class="form-control" id="nota" name="nota" size="40">
+                  <input type="text" class="form-control" id="nota" name="nota" size="40">
                 </td>
               </tr>
 
@@ -163,7 +163,7 @@
 
                   $sql="select * from resultado";
                   $result=mysqli_query($objeto_con->conexion,$sql);
-                  echo "<select class=\"form-control\" name='type' id='type'>";
+                  echo "<select class=\"form-control\" name='resultado' id='resultado'>";
 
                   echo "<option value=\"\" selected disable hidden></option>";
                   while($fila = mysqli_fetch_array($result)){
