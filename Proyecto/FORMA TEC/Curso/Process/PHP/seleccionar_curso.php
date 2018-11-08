@@ -57,41 +57,46 @@
                   <td><b>Descripcion:</b></td>
                   <td><input type=\"text\" class=\"form-control\" descripcion=\"descripcion_update\" id=\"descripcion_update\" value=\"$descripcion\" size=\"40\"></td>
                 </tr>
-                
-                  <td><b>Categoría</b></td>
-                  <td>
-                    <select class=\"form-control\" name='tipo_curso_update' id='tipo_curso_update'>
-                      <option value=\"\" selected disable hidden></option>;";
 
-                      while($categoria_curso = $resultado2->fetch_assoc()){
-                        if($id_tipo_curso==$categoria_curso['id_tipo_curso'])
-                        {
-                          $salida.= "<option selected>".$categoria_curso['nombre_categoria']."</option>";
-                        }else
-                        {
-                          $salida.= "<option>".$categoria_curso['nombre_categoria']."</option>";
-                        }
+                <tr>
+                <td><b>Tipo Curso</b></td>
+                <td>
+                  <select class=\"form-control\" name='tipo_curso_update' id='tipo_curso_update'>
+                    <option value=\"\" selected disable hidden></option>;";
+
+                    while($categoria_curso = $resultado2->fetch_assoc()){
+                      if($id_tipo_curso==$categoria_curso['id_tipo_curso'])
+                      {
+                        $salida.= "<option selected>".$categoria_curso['nombre_categoria']."</option>";
+                      }else
+                      {
+                        $salida.= "<option>".$categoria_curso['nombre_categoria']."</option>";
                       }
+                    }
 
-                      <td><b>Categoría</b></td>
-                  <td>
-                    <select class=\"form-control\" name='nivel_update' id='nivel_update'>
-                      <option value=\"\" selected disable hidden></option>;";
+  $salida.=       "</select>
+                </td>
+              </tr>
 
-                      while($categoria_nivel = $resultado3->fetch_assoc()){
-                        if($id_nivel==$categoria_nivel['id_nivel'])
-                        {
-                          $salida.= "<option selected>".$categoria_nivel['nombre_nivel']."</option>";
-                        }else
-                        {
-                          $salida.= "<option>".$categoria_nivel['nombre_nivel']."</option>";
-                        }
+      <tr>
+                <td><b>Tipo Nivel</b></td>
+                <td>
+                  <select class=\"form-control\" name='nivel_update' id='nivel_update'>
+                    <option value=\"\" selected disable hidden></option>;";
+
+                    while($categoria_nivel = $resultado3->fetch_assoc()){
+                      if($id_nivel==$categoria_nivel['id_nivel'])
+                      {
+                        $salida.= "<option selected>".$categoria_nivel['nombre_nivel']."</option>";
+                      }else
+                      {
+                        $salida.= "<option>".$categoria_nivel['nombre_nivel']."</option>";
                       }
+                    }
 
-    $salida.=       "</select>
-                  </td>
-                </tr>
-
+  $salida.=       "</select>
+                </td>
+              </tr>
 
               </table>
               <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" onclick=\"actualizar_datos($id);\">Actualizar</button>

@@ -220,7 +220,7 @@
   var nota_id;
   function asignar_id(identificador)
   {
-    nota_id=entificador;
+    nota_id=identificador;
   }
 
 

@@ -59,9 +59,9 @@ if($bandera==false)
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
   $nivel=$_POST['nivel'];
-  //$id=$_POST['id'];
-  $id_tipo;
-
+  $id=$_POST['id'];
+  $id_tipo_curso;
+  $id_nivel;
 
 
   if(!texto($nombre_curso))
@@ -75,40 +75,40 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se verifica que no exista algun registro con ese mismo nombre diferente al que se pretende actualizar
-    $sql="SELECT * from curso WHERE nombre_curso='$nombre_curso' and id_curso!=$id";
+    $sql="SELECT * from curso WHERE (nombre_curso='$nombre_curso' and descripcion='$descripcion' and id_tipo_curso=$tipo_curso and id_nivel=$nivel)";
     $regis=$objeto_con->conexion->query($sql);
 
      //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
      if($regis->num_rows==0)
      {
- 
+
        //luego se extrae el id del curso seleccionado
        $sql="SELECT id_curso from curso WHERE nombre_curso='$tipo_curso'";
- 
+
        $result = $objeto_con->conexion->query($sql);
- 
+
        if ($result->num_rows > 0)
        {
          while($row = mysqli_fetch_assoc($result)) {
-           $id_tipo=$row["id_tipo_curso"];
+           $id_tipo_curso=$row["id_tipo_curso"];
          }
        }
 
        //luego se extrae el id del nivel seleccionado
        $sql="SELECT id_nivel from nivel WHERE nombre_nivel='$nivel'";
- 
+
        $result = $objeto_con->conexion->query($sql);
- 
+
        if ($result->num_rows > 0)
        {
          while($row = mysqli_fetch_assoc($result)) {
-           $id_tipo=$row["id_nivel"];
+           $id_nivel=$row["id_nivel"];
          }
        }
- 
+
        //se procede a realizar la actualizacion
-       $sql = "UPDATE curso SET nombre_curso='$nombre_curso', descripcion='$descripcion', tipo_curso=$tipo_curso, nivel=$nivel WHERE id_curso=$id";
- 
+       $sql = "UPDATE curso SET nombre_curso='$nombre_curso', descripcion='$descripcion', tipo_curso=$id_tipo_curso, nivel=$id_nivel WHERE id_curso=$id";
+
        if ($objeto_con->conexion->query($sql) === TRUE){
          //Se procede a colocar null las variables POST
          echo "

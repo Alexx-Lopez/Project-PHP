@@ -206,7 +206,7 @@
   var curso_id;
   function asignar_id(identificador)
   {
-    curso_id=entificador;
+    curso_id=identificador;
   }
 
 

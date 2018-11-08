@@ -4,7 +4,7 @@
   include '../../../Functions/PHP/validation_function.php';
 
   //codigo PHP para realizar la inserción
-  
+
   //banderas
 $bandera=true;
 $bandera2=true;
@@ -34,7 +34,7 @@ if(verificar_empty('nivel'))
   $bandera=false;
   $campos.="Nivel, ";
 }
-  
+
 if($bandera==false)
 {
   echo "
@@ -48,9 +48,10 @@ if($bandera==false)
   $nombre_curso=$_POST['nombre_curso'];
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
+  $id_tipo_curso;
   $nivel=$_POST['nivel'];
-  $id_tipo;
-  
+  $id_nivel;
+
   if(!texto($nombre_curso))
   {
     $bandera2=false;
@@ -60,7 +61,7 @@ if($bandera==false)
   {
     $bandera2=false;
   }
-  
+
 
   //en el caso todo cumpla con lo estipulado se procede a realizar el ingreso
   if($bandera2){
@@ -82,7 +83,7 @@ if($bandera==false)
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_tipo=$row["id_tipo_curso"];
+          $id_tipo_curso=$row["id_tipo_curso"];
         }
       }
 
@@ -96,12 +97,12 @@ if($bandera==false)
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_tipo=$row["id_nivel"];
+          $id_nivel=$row["id_nivel"];
         }
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO curso VALUES(NULL,'$nombre_curso','$descripcion',$tipo_curso, $nivel)";
+      $sql = "INSERT INTO curso VALUES(NULL,'$nombre_curso','$descripcion',$id_tipo_curso, $id_nivel)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
@@ -130,5 +131,4 @@ if($bandera==false)
     $objeto_con->Disconnect();
   }
 }
-
 ?>

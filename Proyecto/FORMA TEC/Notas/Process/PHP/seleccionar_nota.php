@@ -6,14 +6,27 @@
 
   $salida="";
 
-  $id=$_POST['id']; //este id corresponde al id del registro que se desea actualizar
-  $sql=/*consulta para extraer el registro que contenga el id dado*/;
-
+  $id=$_POST['id'];
+  $sql="SELECT * FROM nota WHERE id_nota=$id";
   $resultado=$objeto_con->conexion->query($sql);
+
+  $sql2="SELECT * FROM id_curso";
+  $resultado2=$objeto_con->conexion->query($sql2);
+
+  $sql3="SELECT * FROM id_alumno";
+  $resultado3=$objeto_con->conexion->query($sql3);
+
+  $sql4="SELECT * FROM id_resultado";
+  $resultado3=$objeto_con->conexion->query($sql4);
 
   if($resultado->num_rows>0)
   {
     $fila = $resultado->fetch_assoc();
+
+    $nota=$fila['nota'];
+    $id_curso=$fila['id_curso'];
+    $id_alumno=$fila['id_alumno'];
+    $id_resultado=$fila['id_resultado'];
 
     $salida.=
     "<!-- Modal 2-->
@@ -26,7 +39,85 @@
             </div>
             <div class=\"modal-body\">
               <table class=\"tabla_update\">
-                //maquetado de formulario con los datos del registro que se ha seleccionado
+
+              <thead>
+                  <tr>
+                    <td colspan=\"2\">
+                    <p style=\"text-align: center;color: white !important;margin: 0;font-size: 20px;\"><strong>Datos</strong></p>
+                    </td>
+                  </tr>
+                </thead>
+                <tr>
+                  <td><b>ID:</b></td>
+                  <td><p style=\"margin:0 !important;\">$id</p></td>
+                </tr>
+                <tr>
+                  <td><b>Nota:</b></td>
+                  <td><input type=\"text\" class=\"form-control\" nota=\"nota_update\" id=\"nota_update\" value=\"$nota\" size=\"40\"></td>
+                </tr>
+                
+                <tr>
+                  <td><b>Curso</b></td>
+                  <td>
+                    <select class=\"form-control\" name='nota_update' id='nota_update'>
+                      <option value=\"\" selected disable hidden></option>;";
+
+                      while($categoria_curso = $resultado2->fetch_assoc()){
+                        if($id_curso==$categoria_curso['id_curso'])
+                        {
+                          $salida.= "<option selected>".$categoria_curso['nombre_curso']."</option>";
+                        }else
+                        {
+                          $salida.= "<option>".$categoria_curso['nombre_curso']."</option>";
+                        }
+                      }
+
+    $salida.=       "</select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><b>Alumno</b></td>
+                  <td>
+                    <select class=\"form-control\" name='alumno_update' id='alumno_update'>
+                      <option value=\"\" selected disable hidden></option>;";
+
+                      while($categoria_alumno = $resultado3->fetch_assoc()){
+                        if($id_alumno==$categoria_alumno['id_alumno'])
+                        {
+                          $salida.= "<option selected>".$categoria_alumno['nombres_alumno']." ".$categoria_alumno['apellidos_alumno']."</option>";
+                        }else
+                        {
+                          $salida.= "<option>".$categoria_alumno['nombres_alumno']." ".$categoria_alumno['apellidos_alumno']."</option>";
+                        }
+                      }
+
+    $salida.=       "</select>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><b>Resultado</b></td>
+                  <td>
+                    <select class=\"form-control\" name='resultado_update' id='resultado_update'>
+                      <option value=\"\" selected disable hidden></option>;";
+
+                      while($categoria_resultado = $resultado4->fetch_assoc()){
+                        if($id_resultado==$categoria_resultado['id_resultado'])
+                        {
+                          $salida.= "<option selected>".$categoria_resultado['nombre_resultado']."</option>";
+                        }else
+                        {
+                          $salida.= "<option>".$categoria_resultado['nombre_resultado']."</option>";
+                        }
+                      }
+
+    $salida.=       "</select>
+                  </td>
+                </tr>
+                 
+
+
               </table>
               <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" onclick=\"actualizar_datos($id);\">Actualizar</button>
             </div>
