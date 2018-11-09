@@ -7,7 +7,7 @@
   $salida="";
 
   $id=$_POST['id'];
-  $sql="SELECT * FROM curso WHERE id_curso=$id";
+  $sql="SELECT * FROM curso WHERE id_curso='$id'";
   $resultado=$objeto_con->conexion->query($sql);
 
   $sql2="SELECT * FROM tipo_curso";

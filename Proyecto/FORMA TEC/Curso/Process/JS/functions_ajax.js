@@ -41,7 +41,7 @@ function insertar_datos()
   var bandera2=true;
 
   //se toman los valores de los input
-  var nombre_curso=$("#id_curso").val();
+  var id_curso=$("#id_curso").val();
   var nombre_curso=$("#nombre_curso").val();
   var descripcion=$("#descripcion").val();
   var tipo_curso=$("#tipo_curso").val();

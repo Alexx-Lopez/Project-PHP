@@ -10,6 +10,15 @@ $bandera2=true;
 
 $campos="";
 
+if(verificar_empty('id_curso'))
+{
+  $bandera=false;
+  $campos.="ID de curso,";
+}else
+{
+  $_SESSION['res_id_curso']=$_POST['id_curso'];
+}
+
 if(verificar_empty('nombre_curso'))
 {
   $bandera=false;
