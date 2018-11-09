@@ -59,7 +59,7 @@
                 <tr>
                   <td><b>Curso</b></td>
                   <td>
-                    <select class=\"form-control\" name='nota_update' id='nota_update'>
+                    <select class=\"form-control\" name='curso_update' id='curso_update'>
                       <option value=\"\" selected disable hidden></option>;";
 
                       while($categoria_curso = $resultado2->fetch_assoc()){
