@@ -41,6 +41,7 @@ function insertar_datos()
   var bandera2=true;
 
   //se toman los valores de los input
+  var nombre_curso=$("#id_curso").val();
   var nombre_curso=$("#nombre_curso").val();
   var descripcion=$("#descripcion").val();
   var tipo_curso=$("#tipo_curso").val();
@@ -49,7 +50,7 @@ function insertar_datos()
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(nombre_curso=="" || nombre_curso==null || descripcion=="" || descripcion==null || tipo_curso=="" || tipo_curso==null || nivel=="" || nivel==null)
+  if(id_curso=="" || id_curso==null || nombre_curso=="" || nombre_curso==null || descripcion=="" || descripcion==null || tipo_curso=="" || tipo_curso==null || nivel=="" || nivel==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -71,7 +72,7 @@ function insertar_datos()
         url:'Process/PHP/agregar_curso.php',
         type:'POST',
         dataType:'html',
-        data:"nombre_curso="+nombre_curso+"&descripcion="+descripcion+"&tipo_curso="+tipo_curso+"&nivel="+nivel,
+        data:"id_curso="+id_curso+"&nombre_curso="+nombre_curso+"&descripcion="+descripcion+"&tipo_curso="+tipo_curso+"&nivel="+nivel,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

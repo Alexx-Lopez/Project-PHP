@@ -14,7 +14,7 @@ $campos="";
 if(verificar_empty('id_curso'))
 {
   $bandera=false;
-  $campos.="Id del curso,";
+  $campos.="ID del curso,";
 }
 
 if(verificar_empty('nombre_curso'))
@@ -81,7 +81,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se realiza una verificación que no haya un registro con el mismo Nombre
-    $sql="SELECT id_curso from curso WHERE nombre_curso='$nombre_curso'";
+    $sql="SELECT nombre_curso from curso WHERE nombre_curso='$nombre_curso'";
     $regis=$objeto_con->conexion->query($sql);
 
     //si no hay registros se procede a la inserción en caso contrario se muestra un mensaje
