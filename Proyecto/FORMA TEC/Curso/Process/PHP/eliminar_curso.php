@@ -19,7 +19,7 @@
     $objeto_con->Connect();
 
     //Se procede a realizar la eliminación
-    $sql = "DELETE from nota where id_curso='$id'";
+    $sql = "DELETE from curso where id_curso='$id'";
 
     if ($objeto_con->conexion->query($sql) === TRUE){
       echo "<script>
