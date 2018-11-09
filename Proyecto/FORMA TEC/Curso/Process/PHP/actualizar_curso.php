@@ -55,6 +55,7 @@ if($bandera==false)
 }else
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
+  $id_curso=$_POST['id_curso'];
   $nombre_curso=$_POST['nombre_curso'];
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
@@ -63,6 +64,11 @@ if($bandera==false)
   $id_tipo_curso;
   $id_nivel;
 
+
+  if(!texto($id_curso))
+  {
+    $bandera2=false;
+  }
 
   if(!texto($nombre_curso))
   {
@@ -75,7 +81,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se verifica que no exista algun registro con ese mismo nombre diferente al que se pretende actualizar
-    $sql="SELECT * from curso WHERE (nombre_curso='$nombre_curso' and descripcion='$descripcion' and id_tipo_curso=$tipo_curso and id_nivel=$nivel)";
+    $sql="SELECT * from curso WHERE nombre_curso='$nombre_curso'";
     $regis=$objeto_con->conexion->query($sql);
 
      //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
@@ -83,7 +89,7 @@ if($bandera==false)
      {
 
        //luego se extrae el id del curso seleccionado
-       $sql="SELECT id_curso from curso WHERE nombre_curso='$tipo_curso'";
+       $sql="SELECT id_tipo_curso from curso WHERE nombre_curso='$tipo_curso'";
 
        $result = $objeto_con->conexion->query($sql);
 
@@ -107,7 +113,7 @@ if($bandera==false)
        }
 
        //se procede a realizar la actualizacion
-       $sql = "UPDATE curso SET nombre_curso='$nombre_curso', descripcion='$descripcion', tipo_curso=$id_tipo_curso, nivel=$id_nivel WHERE id_curso=$id";
+       $sql = "UPDATE curso SET id_curso='$id_curso', nombre_curso='$nombre_curso', descripcion='$descripcion', tipo_curso=$id_tipo_curso, nivel=$id_nivel WHERE id_curso=$id";
 
        if ($objeto_con->conexion->query($sql) === TRUE){
          //Se procede a colocar null las variables POST

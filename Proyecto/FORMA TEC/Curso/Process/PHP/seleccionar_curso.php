@@ -20,6 +20,7 @@
   {
     $fila = $resultado->fetch_assoc();
 
+    $id_curso=$fila['id_curso'];
     $nombre_curso=$fila['nombre_curso'];
     $descripcion=$fila['descripcion'];
     $id_tipo_curso=$fila['id_tipo_curso'];
@@ -48,6 +49,12 @@
                   <td><b>ID:</b></td>
                   <td><p style=\"margin:0 !important;\">$id</p></td>
                 </tr>
+                
+                <tr>
+                  <td><b>Id del Curso:</b></td>
+                  <td><input type=\"text\" class=\"form-control\" id_curso=\"id_curso_update\" id=\"id_curso_update\" value=\"$id_curso\" size=\"40\"></td>
+                </tr>
+
                 <tr>
                   <td><b>Nombre del Curso:</b></td>
                   <td><input type=\"text\" class=\"form-control\" nombre_curso=\"nombre_curso_update\" id=\"nombre_curso_update\" value=\"$nombre_curso\" size=\"40\"></td>

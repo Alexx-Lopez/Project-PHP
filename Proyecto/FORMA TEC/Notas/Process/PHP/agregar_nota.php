@@ -106,7 +106,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO nota VALUES(NULL,'$nota',$id_curso, $id_alumno, $id_resultado)";
+      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_curso', $id_alumno, $id_resultado)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "

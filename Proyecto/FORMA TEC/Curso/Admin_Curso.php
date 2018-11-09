@@ -104,8 +104,16 @@
             <h3>Añadir Usuario</h3>
             <table class="tabla_formulario">
               <!--Maquetado del formulario-->
+
               <tr>
-                <td>Nombre de curso: </td>
+                <td>ID del curso: </td>
+                <td>
+                  <input type="text" class="form-control" id="id_curso" name="id_curso" size="40">
+                </td>
+              </tr>
+
+              <tr>
+                <td>Nombre del curso: </td>
                 <td>
                   <input type="text" class="form-control" id="nombre_curso" name="nombre_curso" size="40">
                 </td>

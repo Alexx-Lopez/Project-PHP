@@ -11,6 +11,12 @@ $bandera2=true;
 
 $campos="";
 
+if(verificar_empty('id_curso'))
+{
+  $bandera=false;
+  $campos.="Id del curso,";
+}
+
 if(verificar_empty('nombre_curso'))
 {
   $bandera=false;
@@ -45,12 +51,18 @@ if($bandera==false)
 }else
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
+  $id_curso=$_POST['id_curso'];
   $nombre_curso=$_POST['nombre_curso'];
   $descripcion=$_POST['descripcion'];
   $tipo_curso=$_POST['tipo_curso'];
   $id_tipo_curso;
   $nivel=$_POST['nivel'];
   $id_nivel;
+
+  if(!texto($id_curso))
+  {
+    $bandera2=false;
+  }
 
   if(!texto($nombre_curso))
   {
@@ -69,7 +81,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se realiza una verificación que no haya un registro con el mismo Nombre
-    $sql="SELECT nombre_curso from curso WHERE nombre_curso='$nombre_curso'";
+    $sql="SELECT id_curso from curso WHERE nombre_curso='$nombre_curso'";
     $regis=$objeto_con->conexion->query($sql);
 
     //si no hay registros se procede a la inserción en caso contrario se muestra un mensaje
@@ -89,7 +101,7 @@ if($bandera==false)
 
       if($regis->num_rows==0)
     {
-      //luego se extrae el id del tipo de usuario seleccionado
+      //luego se extrae el id del tipo de nivel seleccionado
       $sql="SELECT id_nivel from nivel WHERE nombre_nivel='$nivel'";
 
       $result = $objeto_con->conexion->query($sql);
@@ -102,12 +114,13 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO curso VALUES(NULL,'$nombre_curso','$descripcion',$id_tipo_curso, $id_nivel)";
+      $sql = "INSERT INTO curso VALUES('$id_curso','$nombre_curso','$descripcion',$id_tipo_curso, $id_nivel)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
         <script>
         //se limpian los inputs
+        $(\"#id_curso\").val(\"\");
         $(\"#nombre_curso\").val(\"\");
         $(\"#descripcion\").val(\"\");
         $(\"#tipo_curso\").val(\"\");

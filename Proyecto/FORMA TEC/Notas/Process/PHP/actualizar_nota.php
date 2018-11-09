@@ -74,7 +74,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se verifica que no exista algun registro con ese mismo nombre diferente al que se pretende actualizar
-    $sql="SELECT * from nota WHERE (nota='$nota' and id_curso!=$curso and id_alumno!=$alumno  and id_resultado!=$resultado)";
+    $sql="SELECT * from nota WHERE nota='$nota'";
     $regis=$objeto_con->conexion->query($sql);
 
     //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
