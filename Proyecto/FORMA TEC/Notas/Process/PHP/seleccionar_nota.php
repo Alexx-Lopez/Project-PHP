@@ -10,13 +10,13 @@
   $sql="SELECT * FROM nota WHERE id_nota=$id";
   $resultado=$objeto_con->conexion->query($sql);
 
-  $sql2="SELECT * FROM id_curso";
+  $sql2="SELECT * FROM 'curso'";
   $resultado2=$objeto_con->conexion->query($sql2);
 
-  $sql3="SELECT * FROM id_alumno";
+  $sql3="SELECT * FROM alumno";
   $resultado3=$objeto_con->conexion->query($sql3);
 
-  $sql4="SELECT * FROM id_resultado";
+  $sql4="SELECT * FROM resultado";
   $resultado3=$objeto_con->conexion->query($sql4);
 
   if($resultado->num_rows>0)

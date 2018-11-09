@@ -62,7 +62,7 @@ if($bandera==false)
     $objeto_con=new Conexion();
     $objeto_con->Connect();
 
-    //primero se realiza una verificación que no haya un registro con el mismo Nombre
+    //primero se realiza una verificación que no haya un registro con la misma nota
     $sql="SELECT nota from nota WHERE nota='$nota'";
     $regis=$objeto_con->conexion->query($sql);
 
@@ -71,7 +71,6 @@ if($bandera==false)
     {
       //luego se extrae el id del CURSO de usuario seleccionado
       $sql="SELECT id_curso from curso WHERE nombre_curso='$curso'";
-
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)
@@ -83,7 +82,6 @@ if($bandera==false)
 
       //luego se extrae el id del ALUMNO de usuario seleccionado
       $sql="SELECT id_alumno from alumno WHERE nombre_alumno='$alumno'";
-
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)
@@ -95,7 +93,6 @@ if($bandera==false)
 
       //luego se extrae el id del RESULTADO de usuario seleccionado
       $sql="SELECT id_resultado from resultado WHERE nombre_resultado='$resultado'";
-
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)

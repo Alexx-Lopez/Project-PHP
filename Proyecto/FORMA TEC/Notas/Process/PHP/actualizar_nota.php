@@ -118,7 +118,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la actualizacion
-      $sql = "UPDATE nota SET nota='$nota', id_curso=$id_curso, id_alumno=$id_alumno, id_resultado=$id_resultado WHERE id_nota=$id";
+      $sql = "UPDATE nota SET nota='$nota', id_curso='$id_curso', id_alumno=$id_alumno, id_resultado=$id_resultado WHERE id_nota=$id";
 
       if ($objeto_con->conexion->query($sql) === TRUE){
         //Se procede a colocar null las variables POST

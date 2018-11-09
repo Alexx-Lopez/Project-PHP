@@ -145,7 +145,7 @@
 
                   echo "<option value=\"\" selected disable hidden></option>";
                   while($fila = mysqli_fetch_array($result)){
-                    echo "<option>".$fila['nombres_alumno']." ".$fila['apellidos_alumno']."</option>";
+                    echo "<option>".$fila['nombres_alumno']."</option>";
                   }
                   echo "</select>";
 
