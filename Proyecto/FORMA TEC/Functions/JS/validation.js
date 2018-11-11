@@ -10,6 +10,18 @@ function verificar_texto(cadena) {
   }
 }
 
+function verificar_numero(cadena) {
+  var valor = cadena;
+  var expreg = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/ ;
+
+  if(expreg.test(valor))
+  {
+   return true;
+  }else{
+    return false;
+  }
+}
+
 function verificar_contraseña_usuario(cadena)
 {
   var valor=cadena;

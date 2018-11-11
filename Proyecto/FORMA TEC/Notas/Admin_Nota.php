@@ -106,7 +106,7 @@
               <tr>
                 <td>Nota: </td>
                 <td>
-                  <input type="text" class="form-control" id="nota" name="nota" size="40">
+                  <input type="number" class="form-control" id="nota" name="nota" size="40">
                 </td>
               </tr>
 

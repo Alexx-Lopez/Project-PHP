@@ -58,7 +58,13 @@ function insertar_datos()
   //se verificar que los datos tengan el formato requerido
   if(bandera==true)
   {
-    //verificar que el texto
+    //verificar que el numero
+
+    if(!verificar_numero(nota))
+    {
+      Mensaje_Warning("Solo se permiten numeros positivos");
+      bandera2=false;
+    }
 
     if(bandera2==true)
     {
