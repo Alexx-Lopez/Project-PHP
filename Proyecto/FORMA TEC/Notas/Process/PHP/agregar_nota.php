@@ -15,19 +15,19 @@ if(verificar_empty('nota'))
   $campos.="Nota,";
 }
 
-if(verificar_empty('id_curso'))
+if(verificar_empty('curso'))
 {
   $bandera=false;
   $campos.="Curso, ";
 }
 
-if(verificar_empty('id_alumno'))
+if(verificar_empty('alumno'))
 {
   $bandera=false;
   $campos.="Alumno, ";
 }
 
-if(verificar_empty('id_resultado'))
+if(verificar_empty('resultado'))
 {
   $bandera=false;
   $campos.="Resultado, ";
@@ -45,17 +45,12 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $nota=$_POST['nota'];
-  $curso=$_POST['id_curso'];
+  $curso=$_POST['curso'];
   $id_curso;
-  $alumno=$_POST['id_alumno'];
+  $alumno=$_POST['alumno'];
   $id_alumno;
-  $resultado=$_POST['id_resultado'];
+  $resultado=$_POST['resultado'];
   $id_resultado;
-
-  if(!texto($nota)
-  {
-    $bandera2=false;
-  }
 
   //en el caso todo cumpla con lo estipulado se procede a realizar el ingreso
   if($bandera2){

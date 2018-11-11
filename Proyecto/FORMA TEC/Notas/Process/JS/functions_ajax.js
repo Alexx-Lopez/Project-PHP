@@ -49,7 +49,7 @@ function insertar_datos()
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(nombre_nota=="" || nombre_nota==null || curso=="" || curso==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
+  if(nota=="" || nota==null || curso=="" || curso==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -59,11 +59,6 @@ function insertar_datos()
   if(bandera==true)
   {
     //verificar que el texto
-    if(!verificar_texto(nombre_nota))
-    {
-      Mensaje_Warning("Solo se permiten letras");
-      bandera2=false;
-    }
 
     if(bandera2==true)
     {
@@ -71,7 +66,7 @@ function insertar_datos()
         url:'Process/PHP/agregar_nota.php',
         type:'POST',
         dataType:'html',
-        data:"nombre_nota="+nombre_nota+"&curso="+curso+"&alumno="+alumno+"&resultado="+resultado,
+        data:"nota="+nota+"&curso="+curso+"&alumno="+alumno+"&resultado="+resultado,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }
