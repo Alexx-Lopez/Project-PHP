@@ -76,7 +76,7 @@ if($bandera==false)
       }
 
       //luego se extrae el id del ALUMNO de usuario seleccionado
-      $sql="SELECT id_alumno from alumno WHERE nombre_alumno='$alumno'";
+      $sql="SELECT id_alumno from alumno WHERE nombres_alumno='$alumno'";
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)
@@ -98,7 +98,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_curso', $id_alumno, $id_resultado)";
+      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_curso', $id_alumno, $id_resultado) ON DUPLICATE KEY UPDATE '$id_curso'";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
@@ -128,4 +128,3 @@ if($bandera==false)
   }
 }
 ?>
-
