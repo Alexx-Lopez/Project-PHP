@@ -46,7 +46,7 @@ if($bandera==false)
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $nota=$_POST['nota'];
   $curso=$_POST['curso'];
-  $id_curso;
+  $id_cursos;
   $alumno=$_POST['alumno'];
   $id_alumno;
   $resultado=$_POST['resultado'];
@@ -71,7 +71,7 @@ if($bandera==false)
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_curso=$row["id_curso"];
+          $id_cursos=$row["id_curso"];
         }
       }
 
@@ -98,7 +98,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_curso', $id_alumno, $id_resultado)";
+      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_cursos', $id_alumno, $id_resultado)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
