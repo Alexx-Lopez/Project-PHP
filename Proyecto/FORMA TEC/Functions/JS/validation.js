@@ -33,3 +33,8 @@ function verificar_contraseña_complejidad(cadena)
   */
   return true;
 }
+
+function verificar_formato_correo(cadena)
+{
+
+}

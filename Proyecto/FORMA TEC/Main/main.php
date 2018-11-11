@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" type="text/css" href="../../CSS/Style.css">
   <link rel="stylesheet" type="text/css" href="../../CSS/style_admin.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/Style_FORMATEC.css">
 </head>
 <body>
   <?php

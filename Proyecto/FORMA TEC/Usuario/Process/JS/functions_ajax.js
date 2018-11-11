@@ -42,6 +42,7 @@ function insertar_datos()
 
   //se toman los valores de los input
   var name=$("#name").val();
+  var email=$("#email").val();
   var pass=$("#pass").val();
   var pass2=$("#pass2").val();
   var type=$("#type").val();
@@ -49,7 +50,7 @@ function insertar_datos()
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(name==null || name=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null)
+  if(name==null || name=="" || email==null || email=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;

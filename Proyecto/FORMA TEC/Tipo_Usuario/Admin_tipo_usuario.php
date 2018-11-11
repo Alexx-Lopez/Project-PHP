@@ -11,7 +11,7 @@
 <head>
   <!--<meta charset="utf-8">-->
   <meta charset="iso-8859-1">
-  <title></title>
+  <title>Administración Tipo de Usuario</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -378,9 +378,6 @@
   include '../Resource/footer.html';
   ?>
 
-
-
-
   <script type="text/javascript">
 
   //carga del loader al inicio
@@ -394,8 +391,6 @@
   {
     usuario_id=identificador;
   }
-
-
 
   d_opciones=document.getElementById("opcion");
 
