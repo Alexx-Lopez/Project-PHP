@@ -42,14 +42,14 @@ function insertar_datos()
 
   //se toman los valores de los input
   var nota=$("#nota").val();
-  var curso=$("#curso").val();
+  var grupo=$("#grupo").val();
   var alumno=$("#alumno").val();
   var resultado=$("#resultado").val();
 
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(nota=="" || nota==null || curso=="" || curso==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
+  if(nota=="" || nota==null || grupo=="" || grupo==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -66,7 +66,7 @@ function insertar_datos()
         url:'Process/PHP/agregar_nota.php',
         type:'POST',
         dataType:'html',
-        data:"nota="+nota+"&curso="+curso+"&alumno="+alumno+"&resultado="+resultado,
+        data:"nota="+nota+"&grupo="+grupo+"&alumno="+alumno+"&resultado="+resultado,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

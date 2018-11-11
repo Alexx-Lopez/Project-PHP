@@ -15,10 +15,10 @@ if(verificar_empty('nota'))
   $campos.="Nota,";
 }
 
-if(verificar_empty('curso'))
+if(verificar_empty('grupo'))
 {
   $bandera=false;
-  $campos.="Curso, ";
+  $campos.="Grupo, ";
 }
 
 if(verificar_empty('alumno'))
@@ -45,8 +45,8 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $nota=$_POST['nota'];
-  $curso=$_POST['curso'];
-  $id_cursos;
+  $grupo=$_POST['grupo'];
+  $id_grupos;
   $alumno=$_POST['alumno'];
   $id_alumno;
   $resultado=$_POST['resultado'];
@@ -64,14 +64,14 @@ if($bandera==false)
     //si no hay registros se procede a la inserción en caso contrario se muestra un mensaje
     if($regis->num_rows==0)
     {
-      //luego se extrae el id del CURSO de usuario seleccionado
-      $sql="SELECT id_curso from curso WHERE nombre_curso='$curso'";
+      //luego se extrae el id del grupo de usuario seleccionado
+      $sql="SELECT id_grupo from grupo WHERE horario='$grupo'";
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_cursos=$row["id_curso"];
+          $id_grupos=$row["id_grupo"];
         }
       }
 
@@ -98,14 +98,14 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO nota VALUES(NULL,'$nota','$id_cursos', $id_alumno, $id_resultado)";
+      $sql = "INSERT INTO nota VALUES(NULL, $id_grupos, '$nota', $id_alumno, $id_resultado)";
 
       if ($objeto_con->conexion->query($sql) === TRUE) {
         echo "
         <script>
         //se limpian los inputs
         $(\"#nota\").val(\"\");
-        $(\"#id_curso\").val(\"\");
+        $(\"#id_grupo\").val(\"\");
         $(\"#id_alumno\").val(\"\");
         $(\"#id_resultado\").val(\"\");
         buscar_datos();

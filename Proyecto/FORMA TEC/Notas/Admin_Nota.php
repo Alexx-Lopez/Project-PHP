@@ -111,19 +111,19 @@
               </tr>
 
               <tr>
-                <td>Cursos: </td>
+                <td>Grupo: </td>
                 <td>
                   <?php
                   $objeto_con=new Conexion();
                   $objeto_con->Connect();
 
-                  $sql="select * from curso";
+                  $sql="select * from grupo";
                   $result=mysqli_query($objeto_con->conexion,$sql);
-                  echo "<select class=\"form-control\" name='curso' id='curso'>";
+                  echo "<select class=\"form-control\" name='grupo' id='grupo'>";
 
                   echo "<option value=\"\" selected disable hidden></option>";
                   while($fila = mysqli_fetch_array($result)){
-                    echo "<option>".$fila['nombre_curso']."</option>";
+                    echo "<option>".$fila['horario']."</option>";
                   }
                   echo "</select>";
 

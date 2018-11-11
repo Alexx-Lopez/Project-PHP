@@ -10,7 +10,7 @@
   $sql="SELECT * FROM nota WHERE id_nota=$id";
   $resultado=$objeto_con->conexion->query($sql);
 
-  $sql2="select * from curso";
+  $sql2="select * from grupo";
   $resultado2=$objeto_con->conexion->query($sql2);
 
   $sql3="select * from alumno";
@@ -24,7 +24,7 @@
     $fila = $resultado->fetch_assoc();
 
     $nota=$fila['nota'];
-    $id_curso=$fila['id_curso'];
+    $id_grupo=$fila['id_grupo'];
     $id_alumno=$fila['id_alumno'];
     $id_resultado=$fila['id_resultado'];
 
@@ -57,18 +57,18 @@
                 </tr>
                 
                 <tr>
-                  <td><b>Curso</b></td>
+                  <td><b>Grupo</b></td>
                   <td>
-                    <select class=\"form-control\" name='curso_update' id='curso_update'>
+                    <select class=\"form-control\" name='grupo_update' id='grupo_update'>
                       <option value=\"\" selected disable hidden></option>;";
 
-                      while($categoria_curso = $resultado2->fetch_assoc()){
-                        if($id_curso==$categoria_curso['id_curso'])
+                      while($categoria_grupo = $resultado2->fetch_assoc()){
+                        if($id_grupo==$categoria_grupo['id_grupo'])
                         {
-                          $salida.= "<option selected>".$categoria_curso['nombre_curso']."</option>";
+                          $salida.= "<option selected>".$categoria_grupo['horario']."</option>";
                         }else
                         {
-                          $salida.= "<option>".$categoria_curso['nombre_curso']."</option>";
+                          $salida.= "<option>".$categoria_grupo['horario']."</option>";
                         }
                       }
 

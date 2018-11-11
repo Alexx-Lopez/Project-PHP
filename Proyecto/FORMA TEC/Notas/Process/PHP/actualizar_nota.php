@@ -17,13 +17,13 @@ if(verificar_empty('nota'))
   $_SESSION['res_nota']=$_POST['nota'];
 }
 
-if(verificar_empty('id_curso'))
+if(verificar_empty('id_grupo'))
 {
   $bandera=false;
-  $campos.="Curso, ";
+  $campos.="Grupo, ";
 }else
 {
-  $_SESSION['res_id_curso']=$_POST['id_curso'];
+  $_SESSION['res_id_grupo']=$_POST['id_grupo'];
 }
 
 if(verificar_empty('id_alumno'))
@@ -54,8 +54,8 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $nota=$_POST['nota'];
-  $curso=$_POST['id_curso'];
-  $id_curso;
+  $grupo=$_POST['id_grupo'];
+  $id_grupo;
   $alumno=$_POST['id_alumno'];
   $id_alumno;
   $resultado=$_POST['id_resultado'];
@@ -82,14 +82,14 @@ if($bandera==false)
     {
 
       //luego se extrae el id del tipo de usuario seleccionado
-      $sql="SELECT id_curso from curso WHERE nombre_curso='$curso'";
+      $sql="SELECT id_grupo from grupo WHERE horario='$grupo'";
 
       $result = $objeto_con->conexion->query($sql);
 
       if ($result->num_rows > 0)
       {
         while($row = mysqli_fetch_assoc($result)) {
-          $id_curso=$row["id_curso"];
+          $id_grupo=$row["id_grupo"];
         }
       }
 
@@ -118,7 +118,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la actualizacion
-      $sql = "UPDATE nota SET nota='$nota', id_curso='$id_curso', id_alumno=$id_alumno, id_resultado=$id_resultado WHERE id_nota=$id";
+      $sql = "UPDATE nota SET id_grupo=$id_grupo, nota='$nota', id_alumno=$id_alumno, id_resultado=$id_resultado WHERE id_nota=$id";
 
       if ($objeto_con->conexion->query($sql) === TRUE){
         //Se procede a colocar null las variables POST
