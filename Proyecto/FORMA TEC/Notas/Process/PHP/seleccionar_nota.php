@@ -10,14 +10,14 @@
   $sql="SELECT * FROM nota WHERE id_nota=$id";
   $resultado=$objeto_con->conexion->query($sql);
 
-  $sql2="SELECT * FROM 'curso'";
+  $sql2="select * from curso";
   $resultado2=$objeto_con->conexion->query($sql2);
 
-  $sql3="SELECT * FROM alumno";
+  $sql3="select * from alumno";
   $resultado3=$objeto_con->conexion->query($sql3);
 
-  $sql4="SELECT * FROM resultado";
-  $resultado3=$objeto_con->conexion->query($sql4);
+  $sql4="select * from resultado";
+  $resultado4=$objeto_con->conexion->query($sql4);
 
   if($resultado->num_rows>0)
   {
@@ -85,10 +85,10 @@
                       while($categoria_alumno = $resultado3->fetch_assoc()){
                         if($id_alumno==$categoria_alumno['id_alumno'])
                         {
-                          $salida.= "<option selected>".$categoria_alumno['nombres_alumno']." ".$categoria_alumno['apellidos_alumno']."</option>";
+                          $salida.= "<option selected>".$categoria_alumno['nombres_alumno']."</option>";
                         }else
                         {
-                          $salida.= "<option>".$categoria_alumno['nombres_alumno']." ".$categoria_alumno['apellidos_alumno']."</option>";
+                          $salida.= "<option>".$categoria_alumno['nombres_alumno']."</option>";
                         }
                       }
 
