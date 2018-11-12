@@ -1,10 +1,10 @@
 <?php session_start()?>
 <?php
-  include '../Functions/PHP/CN.php';
-  require '../../Login/verificar_sesion.php';
+  /*include '../Functions/PHP/CN.php';
+  //require '../../Login/verificar_sesion.php';
 
   //se verifica que el usuario tenga permiso total a la pagina visitada
-  verificar_permisos_usuarios('curso');
+  verificar_permisos_usuarios('curso');*/
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -108,7 +108,7 @@
         <div id="formulario">
           <i class="fas fa-arrow-circle-left boton_regresar_opcion" style="font-size:30px;" id="regre_nuevo_opcion"></i>
           <form method="post" onsubmit="return false" action="return false">
-            <h3>Añadir Usuario</h3>
+            <h3>Añadir Curso</h3>
             <table class="tabla_formulario">
               <!--Maquetado del formulario-->
 

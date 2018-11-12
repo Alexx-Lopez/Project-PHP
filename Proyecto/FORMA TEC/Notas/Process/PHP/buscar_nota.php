@@ -23,6 +23,8 @@
                   <tr>
                     <td><b>ID</b></td>
                     <td><b>Nota</b></td>
+                    <td><b>Alumno</b></td>
+                    <td><b>Resultado</b></td>
                     <td><b>Opciones</b></td>
                   </tr>
                 </thead>
@@ -32,6 +34,8 @@
         $salida.="<tr>
                     <td>".$fila['id_nota']."</td>
                     <td>".$fila['nota']."</td>
+                    <td>".$fila['id_alumno']."</td>
+                    <td>".$fila['id_resultado']."</td>
                     <td>
                       <button type=\"button\" class=\"btn btn-default btn-sm boton_editar\" data-id='".$fila['id_nota']."' onclick=\"seleccionar_datos('".$fila['id_nota']."');\">
                         <span class=\"glyphicon glyphicon-pencil\"></span>

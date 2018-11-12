@@ -59,11 +59,6 @@ if($bandera==false)
   $nivel=$_POST['nivel'];
   $id_nivel;
 
-  if(!texto($id_curso))
-  {
-    $bandera2=false;
-  }
-
   if(!texto($nombre_curso))
   {
     $bandera2=false;
