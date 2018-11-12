@@ -17,6 +17,12 @@ if(verificar_empty('name'))
   $_SESSION['res_name']=$_POST['name'];
 }
 
+if(verificar_empty('email'))
+{
+  $bandera=false;
+  $campos.="email, ";
+}
+
 if(verificar_empty('pass'))
 {
   $bandera=false;
@@ -45,6 +51,7 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $name=$_POST['name'];
+  $email=$_POST['email'];
   $pass=$_POST['pass'];
   $type=$_POST['type'];
   $id=$_POST['id'];
@@ -52,6 +59,16 @@ if($bandera==false)
 
 
   if(!texto($name))
+  {
+    $bandera2=false;
+  }
+
+  if(!verificar_formato_correo($email))
+  {
+    $bandera2=false;
+  }
+
+  if(!verificar_contraseña_usuario($pass))
   {
     $bandera2=false;
   }
@@ -82,7 +99,7 @@ if($bandera==false)
       }
 
       //se procede a realizar la actualizacion
-      $sql = "UPDATE usuario SET username='$name', contrasena='$pass', id_tipo_usuario=$id_type WHERE id_usuario=$id";
+      $sql = "UPDATE usuario SET username='$name', email='$email', contrasena='$pass', id_tipo_usuario=$id_type WHERE id_usuario=$id";
 
       if ($objeto_con->conexion->query($sql) === TRUE){
         //Se procede a colocar null las variables POST

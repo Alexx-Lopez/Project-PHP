@@ -42,6 +42,7 @@ function insertar_datos()
 
   //se toman los valores de los input
   var name=$("#name").val();
+  var email=$("#email").val();
   var pass=$("#pass").val();
   var pass2=$("#pass2").val();
   var type=$("#type").val();
@@ -49,7 +50,7 @@ function insertar_datos()
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(name==null || name=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null)
+  if(name==null || name=="" || email==null || email=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -62,6 +63,12 @@ function insertar_datos()
     if(!verificar_texto(name))
     {
       Mensaje_Warning("Solo se permiten letras");
+      bandera2=false;
+    }
+
+    if(!verificar_formato_correo(email))
+    {
+      Mensaje_Warning("Correo no contiene el formato exigido");
       bandera2=false;
     }
 
@@ -83,8 +90,8 @@ function insertar_datos()
         url:'Process/PHP/agregar_usuario.php',
         type:'POST',
         dataType:'html',
-        data:"name="+name+"&pass="+pass+"&type="+type,
-        success: function(respuesta) {
+        data:"name="+name+"&pass="+pass+"&type="+type+"&email="+email,
+        success: function(respuesta){
           $("#notificaciones").html(respuesta);
         }
       });
@@ -153,6 +160,7 @@ function actualizar_datos(id_usuario)
 
   //se toman los valores de los input
   var name=$("#name_update").val();
+  var email=$("#email_update").val();
   var pass=$("#pass_update").val();
   var pass2=$("#pass2_update").val();
   var type=$("#type_update").val();
@@ -163,7 +171,7 @@ function actualizar_datos(id_usuario)
   //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
 
   //se verifican que los campos no esten solos
-  if(name==null || name=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null || id=="" || id==null)
+  if(name==null || name=="" || email==null || email=="" || pass=="" || pass==null || pass2=="" || pass2==null || type=="" || type==null || id=="" || id==null)
   {
     Mensaje_Error("No se permiten campos vacios");
     bandera=false;
@@ -175,6 +183,12 @@ function actualizar_datos(id_usuario)
     if(!verificar_texto(name))
     {
       Mensaje_Warning("Solo se permiten letras");
+      bandera2=false;
+    }
+
+    if(!verificar_formato_correo(email))
+    {
+      Mensaje_Warning("Correo no contiene el formato exigido");
       bandera2=false;
     }
 
@@ -196,7 +210,7 @@ function actualizar_datos(id_usuario)
         url:'Process/PHP/actualizar_usuario.php',
         type:'POST',
         dataType:'html',
-        data:"name="+name+"&pass="+pass+"&type="+type+"&id="+id,
+        data:"name="+name+"&email="+email+"&pass="+pass+"&type="+type+"&id="+id,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

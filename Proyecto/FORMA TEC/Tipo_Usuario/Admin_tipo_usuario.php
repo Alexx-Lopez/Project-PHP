@@ -1,10 +1,17 @@
 <?php session_start()?>
+<?php
+  include '../Functions/PHP/CN.php';
+  require '../../Login/verificar_sesion.php';
+
+  //se verifica que el usuario tenga permiso total a la pagina visitada
+  verificar_permisos_usuarios('tipo_usuario');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <!--<meta charset="utf-8">-->
   <meta charset="iso-8859-1">
-  <title></title>
+  <title>Administración Tipo de Usuario</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,6 +39,73 @@
 
   <script type="text/javascript">
 
+  $(document).ready(function () {
+    seleccionar_todo();
+
+    function seleccionar_todo()
+    {
+      $(".ck_alumno input[type=checkbox]").prop('checked',true);
+      $(".ck_curso input[type=checkbox]").prop('checked',true);
+      $(".ck_docente input[type=checkbox]").prop('checked',true);
+      $(".ck_estado input[type=checkbox]").prop('checked',true);
+      $(".ck_grupo input[type=checkbox]").prop('checked',true);
+      $(".ck_nivel input[type=checkbox]").prop('checked',true);
+      $(".ck_nota input[type=checkbox]").prop('checked',true);
+      $(".ck_responsable input[type=checkbox]").prop('checked',true);
+      $(".ck_resultado input[type=checkbox]").prop('checked',true);
+      $(".ck_tipos_cursos input[type=checkbox]").prop('checked',true);
+      $(".ck_tipo_usuarios input[type=checkbox]").prop('checked',true);
+      $(".ck_usuarios input[type=checkbox]").prop('checked',true);
+    }
+  });
+
+
+  $(function(){
+    //se deshabilitan los checkbox
+    $(".ck_alumno input[type=checkbox]").prop('disabled',true); //alumno
+    $(".ck_curso input[type=checkbox]").prop('disabled',true);  //curso
+    $(".ck_docente input[type=checkbox]").prop('disabled',true);  //docente
+    $(".ck_estado input[type=checkbox]").prop('disabled',true);  //estado
+    $(".ck_grupo input[type=checkbox]").prop('disabled',true);  //grupo
+    $(".ck_nivel input[type=checkbox]").prop('disabled',true);  //niveles
+    $(".ck_nota input[type=checkbox]").prop('disabled',true);  //notas
+    $(".ck_responsable input[type=checkbox]").prop('disabled',true);  //responsable
+    $(".ck_resultado input[type=checkbox]").prop('disabled',true);  //resultado
+    $(".ck_tipos_cursos input[type=checkbox]").prop('disabled',true);  //tipos cursos
+    $(".ck_tipo_usuarios input[type=checkbox]").prop('disabled',true);  //tipos usuarios
+    $(".ck_usuarios input[type=checkbox]").prop('disabled',true);  //usuarios
+
+
+    control_radio('radio_alumno','ck_alumno');  //radio_alumno
+    control_radio('radio_curso','ck_curso'); //radio_curso
+    control_radio('radio_docente','ck_docente'); //radio_docente
+    control_radio('radio_estado','ck_estado'); //radio_estado
+    control_radio('radio_grupo','ck_grupo');  //radio_grupo
+    control_radio('radio_nivel','ck_nivel');  //radio_nivel
+    control_radio('radio_nota','ck_nota');  //radio_nota
+    control_radio('radio_responsable','ck_responsable');  //radio_responsable
+    control_radio('radio_resultado','ck_resultado');  //radio_responsable
+    control_radio('radio_tipos_cursos','ck_tipos_cursos');  //radio_tipos_cursos
+    control_radio('radio_tipo_usuarios','ck_tipo_usuarios'); //radio_tipo_usuarios
+    control_radio('radio_usuarios','ck_usuarios');
+
+    function control_radio(radio,checkbox)
+    {
+      $('.'+radio).click(function(){
+        var rb=$('input:radio[name='+radio+']:checked').val()
+        if(rb=="total"){
+          $("."+checkbox+" input[type=checkbox]").prop('checked',true);
+        }
+        if(rb=="denegado")
+        {
+          $("."+checkbox+" input[type=checkbox]").prop('checked',false);
+        }
+      });
+    }
+
+  });
+
+
   </script>
 
 
@@ -44,10 +118,9 @@
 
   <?php
   include '../Resource/progress_bar.html';
-  include '../Resource/header.html';
+  include '../Resource/header.php';
   include '../Resource/boton_mostrar_menu.html';
   include '../Resource/menu_vertical.html';
-  include '../Functions/PHP/CN.php';
   ?>
 
   <div id="cont" class="contenedor" style="height:auto;">
@@ -93,7 +166,7 @@
         <!--formulario correspondiente a los datos que se estaran manejando-->
         <div id="formulario">
           <i class="fas fa-arrow-circle-left boton_regresar_opcion" style="font-size:30px;" id="regre_nuevo_opcion"></i>
-          <form method="post" onsubmit="return false" action="return false">
+          <form method="post" onsubmit="return false" action="return false" name="frm">
             <h3>Añadir Tipo de Usuario</h3>
             <table class="tabla_formulario">
               <tr>
@@ -103,6 +176,213 @@
                 </td>
               </tr>
             </table>
+            <br>
+
+            <table class="tabla_permisos">
+              <thead>
+                <tr>
+                  <td colspan="3"><p style="text-align: center;color: white;font-size: 20px;margin: 0;"><b>Establecer permisos</b></p></td>
+                </tr>
+                <tr style="color:white;">
+                  <td><b>Area</b></td>
+                  <td><b>Tipo de permiso</b></td>
+                  <td><b>Acciones</b></td>
+                </tr>
+             </thead>
+              <tr>
+                <td>
+                  Alumno
+                </td>
+                <td>
+                  <label class="radio-inline radio_alumno"><input type="radio" name="radio_alumno" id="radio_alumno_total" value="total" checked>Total</label>
+                  <label class="radio-inline radio_alumno"><input type="radio" name="radio_alumno" id="radio_alumno_parcial" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_alumno"><input type="radio" name="radio_alumno" id="radio_alumno_denegado" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_alumno"><input type="checkbox" name="ck_alumno" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_alumno"><input type="checkbox" name="ck_alumno" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_alumno"><input type="checkbox" name="ck_alumno" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_alumno"><input type="checkbox" name="ck_alumno" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Curso
+                </td>
+                <td>
+                  <label class="radio-inline radio_curso"><input type="radio" name="radio_curso" value="total" checked>Total</label>
+                  <label class="radio-inline radio_curso"><input type="radio" name="radio_curso" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_curso"><input type="radio" name="radio_curso" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_curso"><input type="checkbox" name="ck_curso" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_curso"><input type="checkbox" name="ck_curso" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_curso"><input type="checkbox" name="ck_curso" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_curso"><input type="checkbox" name="ck_curso" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Docente
+                </td>
+                <td>
+                  <label class="radio-inline radio_docente"><input type="radio" name="radio_docente" value="total" checked>Total</label>
+                  <label class="radio-inline radio_docente"><input type="radio" name="radio_docente" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_docente"><input type="radio" name="radio_docente" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_docente"><input type="checkbox" name="ck_docente" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_docente"><input type="checkbox" name="ck_docente" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_docente"><input type="checkbox" name="ck_docente" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_docente"><input type="checkbox" name="ck_docente" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Estado:
+                </td>
+                <td>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="total" checked>Total</label>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Grupo
+                </td>
+                <td>
+                  <label class="radio-inline radio_grupo"><input type="radio" name="radio_grupo" value="total" checked>Total</label>
+                  <label class="radio-inline radio_grupo"><input type="radio" name="radio_grupo" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_grupo"><input type="radio" name="radio_grupo" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_grupo"><input type="checkbox" name="ck_grupo" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_grupo"><input type="checkbox" name="ck_grupo" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_grupo"><input type="checkbox" name="ck_grupo" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_grupo"><input type="checkbox" name="ck_grupo" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Niveles
+                </td>
+                <td>
+                  <label class="radio-inline radio_nivel"><input type="radio" name="radio_nivel" value="total" checked>Total</label>
+                  <label class="radio-inline radio_nivel"><input type="radio" name="radio_nivel" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_nivel"><input type="radio" name="radio_nivel" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_nivel"><input type="checkbox" name="ck_nivel" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_nivel"><input type="checkbox" name="ck_nivel" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_nivel"><input type="checkbox" name="ck_nivel" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_nivel"><input type="checkbox" name="ck_nivel" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Nota
+                </td>
+                <td>
+                  <label class="radio-inline radio_nota"><input type="radio" name="radio_nota" value="total" checked>Total</label>
+                  <label class="radio-inline radio_nota"><input type="radio" name="radio_nota" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_nota"><input type="radio" name="radio_nota" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_nota"><input type="checkbox" name="ck_nota" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_nota"><input type="checkbox" name="ck_nota" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_nota"><input type="checkbox" name="ck_nota" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_nota"><input type="checkbox" name="ck_nota" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Responsable
+                </td>
+                <td>
+                  <label class="radio-inline radio_responsable"><input type="radio" name="radio_responsable" value="total" checked>Total</label>
+                  <label class="radio-inline radio_responsable"><input type="radio" name="radio_responsable" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_responsable"><input type="radio" name="radio_responsable" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Resultado
+                </td>
+                <td>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="total" checked>Total</label>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Tipos de Cursos
+                </td>
+                <td>
+                  <label class="radio-inline radio_tipos_cursos"><input type="radio" name="radio_tipos_cursos" value="total" checked>Total</label>
+                  <label class="radio-inline radio_tipos_cursos"><input type="radio" name="radio_tipos_cursos" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_tipos_cursos"><input type="radio" name="radio_tipos_cursos" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_tipos_cursos"><input type="checkbox" name="ck_tipos_cursos" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_tipos_cursos"><input type="checkbox" name="ck_tipos_cursos" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_tipos_cursos"><input type="checkbox" name="ck_tipos_cursos" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_tipos_cursos"><input type="checkbox" name="ck_tipos_cursos" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Tipos de Usuarios
+                </td>
+                <td>
+                  <label class="radio-inline radio_tipo_usuarios"><input type="radio" name="radio_tipo_usuarios" value="total" checked>Total</label>
+                  <label class="radio-inline radio_tipo_usuarios"><input type="radio" name="radio_tipo_usuarios" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_tipo_usuarios"><input type="radio" name="radio_tipo_usuarios" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_tipo_usuarios"><input type="checkbox" name="ck_tipo_usuarios" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_tipo_usuarios"><input type="checkbox" name="ck_tipo_usuarios" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_tipo_usuarios"><input type="checkbox" name="ck_tipo_usuarios" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_tipo_usuarios"><input type="checkbox" name="ck_tipo_usuarios" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Usuarios
+                </td>
+                <td>
+                  <label class="radio-inline radio_usuarios"><input type="radio" name="radio_usuarios" value="total" checked>Total</label>
+                  <label class="radio-inline radio_usuarios"><input type="radio" name="radio_usuarios" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_usuarios"><input type="radio" name="radio_usuarios" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_usuarios"><input type="checkbox" name="ck_usuarios" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_usuarios"><input type="checkbox" name="ck_usuarios" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_usuarios"><input type="checkbox" name="ck_usuarios" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_usuarios"><input type="checkbox" name="ck_usuarios" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+            </table>
+
             <br>
             <br>
             <input type="button" class="btn btn-default boton_añadir" value="Guardar" name="btn_guardar" onclick="insertar_datos();">
@@ -136,9 +416,6 @@
   include '../Resource/footer.html';
   ?>
 
-
-
-
   <script type="text/javascript">
 
   //carga del loader al inicio
@@ -152,8 +429,6 @@
   {
     usuario_id=identificador;
   }
-
-
 
   d_opciones=document.getElementById("opcion");
 

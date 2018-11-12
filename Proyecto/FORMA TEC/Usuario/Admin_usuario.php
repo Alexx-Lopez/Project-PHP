@@ -1,10 +1,17 @@
 <?php session_start()?>
+<?php
+  include '../Functions/PHP/CN.php';
+  require '../../Login/verificar_sesion.php';
+
+  //se verifica que el usuario tenga permiso total a la pagina visitada
+  verificar_permisos_usuarios('usuario');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <!--<meta charset="utf-8">-->
   <meta charset="iso-8859-1">
-  <title></title>
+  <title>Administración Usuario</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,10 +51,9 @@
 
   <?php
   include '../Resource/progress_bar.html';
-  include '../Resource/header.html';
+  include '../Resource/header.php';
   include '../Resource/boton_mostrar_menu.html';
   include '../Resource/menu_vertical.html';
-  include '../Functions/PHP/CN.php';
   ?>
 
   <div id="cont" class="contenedor" style="height:auto;">
@@ -100,6 +106,12 @@
                 <td>Nombre de usuario: </td>
                 <td>
                   <input type="text" class="form-control" id="name" name="name" size="40">
+                </td>
+              </tr>
+              <tr>
+                <td>Correo Electrónico: </td>
+                <td>
+                  <input type="text" class="form-control" id="email" name="email" size="40">
                 </td>
               </tr>
               <tr>

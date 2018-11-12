@@ -12,7 +12,13 @@ $campos="";
 if(verificar_empty('name'))
 {
   $bandera=false;
-  $campos.="Nombre de usuario,";
+  $campos.="Nombre de usuario, ";
+}
+
+if(verificar_empty('email'))
+{
+  $bandera=false;
+  $campos.="email, ";
 }
 
 if(verificar_empty('pass'))
@@ -38,11 +44,17 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $name=$_POST['name'];
+  $email=$_POST['email'];
   $pass=$_POST['pass'];
   $type=$_POST['type'];
   $id_type;
 
   if(!texto($name))
+  {
+    $bandera2=false;
+  }
+
+  if(!verificar_formato_correo($email))
   {
     $bandera2=false;
   }
@@ -77,13 +89,14 @@ if($bandera==false)
       }
 
       //se procede a realizar la insercion
-      $sql = "INSERT INTO usuario VALUES(NULL,'$name','$pass',$id_type)";
+      $sql = "INSERT INTO usuario VALUES(NULL,'$name','$pass','$email',$id_type)";
 
-      if ($objeto_con->conexion->query($sql) === TRUE) {
+      if ($objeto_con->conexion->query($sql) === TRUE){
         echo "
         <script>
         //se limpian los inputs
         $(\"#name\").val(\"\");
+        $(\"#email\").val(\"\");
         $(\"#pass\").val(\"\");
         $(\"#type\").val(\"\");
         $(\"#pass2\").val(\"\");
