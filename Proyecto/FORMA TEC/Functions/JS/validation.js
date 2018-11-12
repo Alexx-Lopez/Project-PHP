@@ -56,7 +56,7 @@ function verificar_dui(cadena){
   }
 }
 
-function verificar_numero(cadena){
+function verificar_edad(cadena){
   var valor=cadena;
   var expreg=/^[1-9]\d*$/;
 

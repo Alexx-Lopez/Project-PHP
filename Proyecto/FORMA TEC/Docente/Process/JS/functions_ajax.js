@@ -109,7 +109,7 @@ function insertar_datos()
       bandera2=false;
     }
 
-    if (!verificar_numero(edad)) {
+    if (!verificar_edad(edad)) {
       Mensaje_Warning("Edad debe ser un número mayor que cero");
       bandera2=false;
     }
@@ -267,7 +267,7 @@ function actualizar_datos(id_docente)
       bandera2=false;
     }
 
-    if (!verificar_numero(edad)) {
+    if (!verificar_edad(edad)) {
       Mensaje_Warning("Edad debe ser un número mayor que cero");
       bandera2=false;
     }
