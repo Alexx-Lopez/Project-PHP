@@ -23,9 +23,9 @@ function verificar_texto(cadena) {
 }*/
 
 function verificar_numero(cadena){
-  var valor = cadena;
-  if(typeof valor === 'number'){
-      if(valor>=0 && valor<=10){
+  
+  if(typeof Number(cadena) == 'number'){
+      if(cadena>=0 && cadena<=10){
           return true;
       }else{
           return false;

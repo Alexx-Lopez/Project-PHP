@@ -62,7 +62,7 @@ function insertar_datos()
 
     if(!verificar_numero(nota))
     {
-      Mensaje_Warning("Solo se permiten numeros positivos");
+      Mensaje_Warning("Solo se permiten numeros positivos y numeros entre 0 y 10");
       bandera2=false;
     }
 

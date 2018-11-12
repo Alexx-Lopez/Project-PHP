@@ -31,6 +31,7 @@
   <script type="text/javascript">
     //script que necesiten realizar
   </script>
+  <script src="../Functions/JS/validation.js"></script>
 
   <style>
     /*estilos que deseen crear o modificar*/
