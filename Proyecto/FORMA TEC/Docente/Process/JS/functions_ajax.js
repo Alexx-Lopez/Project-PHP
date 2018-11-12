@@ -113,6 +113,11 @@ function insertar_datos()
       Mensaje_Warning("Edad debe ser un número mayor que cero");
       bandera2=false;
     }
+
+    if(!verificar_email(correo)){
+      Mensaje_Warning("Ingrese un correo válido");
+      bandera2=false;
+    }
     
     if(bandera2==true)
     {
@@ -264,6 +269,11 @@ function actualizar_datos(id_docente)
 
     if (!verificar_numero(edad)) {
       Mensaje_Warning("Edad debe ser un número mayor que cero");
+      bandera2=false;
+    }
+
+    if(!verificar_email(correo)){
+      Mensaje_Warning("Ingrese un correo válido");
       bandera2=false;
     }
     

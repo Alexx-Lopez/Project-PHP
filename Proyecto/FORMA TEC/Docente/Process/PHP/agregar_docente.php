@@ -148,7 +148,7 @@ if($bandera==false)
     }else
     {
       echo "<script>
-              Mensaje_Error(\"Ya existe un registro con información similar\");
+              Mensaje_Error(\"Ya existe un registro con información similar. Revise DUI o Nombres\");
             </script>";
     }
     $objeto_con->Disconnect();

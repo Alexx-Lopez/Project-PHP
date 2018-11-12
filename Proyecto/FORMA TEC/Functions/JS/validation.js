@@ -66,3 +66,14 @@ function verificar_numero(cadena){
     return false;
   }
 }
+
+function verificar_email(cadena){
+  var valor=cadena;
+  var expreg=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+  if (expreg.test(valor)) {
+    return true;
+  }else{
+    return false;
+  }
+}
