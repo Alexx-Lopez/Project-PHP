@@ -105,9 +105,9 @@ if($bandera==false)
         <script>
         //se limpian los inputs
         $(\"#nota\").val(\"\");
-        $(\"#id_grupo\").val(\"\");
-        $(\"#id_alumno\").val(\"\");
-        $(\"#id_resultado\").val(\"\");
+        $(\"#grupo\").val(\"\");
+        $(\"#alumno\").val(\"\");
+        $(\"#resultado\").val(\"\");
         buscar_datos();
         Mensaje_Succes('Nota Ingresada');
         </script>";
