@@ -10,7 +10,7 @@ function verificar_texto(cadena) {
   }
 }
 
-function verificar_numero(cadena) {
+/*function verificar_numero(cadena) {
   var valor = cadena;
   var expreg = /^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?$/ ;
 
@@ -19,6 +19,19 @@ function verificar_numero(cadena) {
    return true;
   }else{
     return false;
+  }
+}*/
+
+function verificar_numero(cadena){
+  var valor = cadena;
+  if(typeof valor === 'number'){
+      if(valor>=0 && valor<=10){
+          return true;
+      }else{
+          return false;
+      }
+  }else{
+      return false;
   }
 }
 
