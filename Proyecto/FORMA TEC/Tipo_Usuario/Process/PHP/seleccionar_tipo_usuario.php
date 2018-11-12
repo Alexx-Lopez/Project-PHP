@@ -106,6 +106,22 @@
                 </tr>
                 <tr>
                   <td>
+                    Estado
+                  </td>
+                  <td>
+                    <label class=\"radio-inline u_radio_estado\"><input type=\"radio\" name=\"u_radio_estado\" value=\"total\" checked>Total</label>
+                    <label class=\"radio-inline u_radio_estado\"><input type=\"radio\" name=\"u_radio_estado\" value=\"parcial\" disabled>Parcial</label>
+                    <label class=\"radio-inline u_radio_estado\"><input type=\"radio\" name=\"u_radio_estado\" value=\"denegado\" >Denegado</label>
+                  </td>
+                  <td style=\"text-align:center;\">
+                    <label class=\"checkbox-inline u_ck_estado\"><input type=\"checkbox\" name=\"u_ck_estado\" value=\"\"><i class=\"material-icons\" style=\"font-size: 30px;\">note_add</i></label>
+                    <label class=\"checkbox-inline u_ck_estado\"><input type=\"checkbox\" name=\"u_ck_estado\" value=\"\"><span class=\"glyphicon glyphicon-list-alt\" style=\"font-size: 25px;\"></span></label>
+                    <label class=\"checkbox-inline u_ck_estado\"><input type=\"checkbox\" name=\"u_ck_estado\" value=\"\"><span class=\"glyphicon glyphicon-refresh\" style=\"font-size: 25px;\"></span></label>
+                    <label class=\"checkbox-inline u_ck_estado\"><input type=\"checkbox\" name=\"u_ck_estado\" value=\"\"><span class=\"glyphicon glyphicon-trash\" style=\"font-size: 25px;\"></span></label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
                     Grupo
                   </td>
                   <td>
@@ -166,6 +182,22 @@
                     <label class=\"checkbox-inline u_ck_responsable\"><input type=\"checkbox\" name=\"u_ck_responsable\" value=\"\"><span class=\"glyphicon glyphicon-list-alt\" style=\"font-size: 25px;\"></span></label>
                     <label class=\"checkbox-inline u_ck_responsable\"><input type=\"checkbox\" name=\"u_ck_responsable\" value=\"\"><span class=\"glyphicon glyphicon-refresh\" style=\"font-size: 25px;\"></span></label>
                     <label class=\"checkbox-inline u_ck_responsable\"><input type=\"checkbox\" name=\"u_ck_responsable\" value=\"\"><span class=\"glyphicon glyphicon-trash\" style=\"font-size: 25px;\"></span></label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Resultado
+                  </td>
+                  <td>
+                    <label class=\"radio-inline u_radio_resultado\"><input type=\"radio\" name=\"u_radio_resultado\" value=\"total\" checked>Total</label>
+                    <label class=\"radio-inline u_radio_resultado\"><input type=\"radio\" name=\"u_radio_resultado\" value=\"parcial\" disabled>Parcial</label>
+                    <label class=\"radio-inline u_radio_resultado\"><input type=\"radio\" name=\"u_radio_resultado\" value=\"denegado\" >Denegado</label>
+                  </td>
+                  <td style=\"text-align:center;\">
+                    <label class=\"checkbox-inline u_ck_resultado\"><input type=\"checkbox\" name=\"u_ck_resultado\" value=\"\"><i class=\"material-icons\" style=\"font-size: 30px;\">note_add</i></label>
+                    <label class=\"checkbox-inline u_ck_resultado\"><input type=\"checkbox\" name=\"u_ck_resultado\" value=\"\"><span class=\"glyphicon glyphicon-list-alt\" style=\"font-size: 25px;\"></span></label>
+                    <label class=\"checkbox-inline u_ck_resultado\"><input type=\"checkbox\" name=\"u_ck_resultado\" value=\"\"><span class=\"glyphicon glyphicon-refresh\" style=\"font-size: 25px;\"></span></label>
+                    <label class=\"checkbox-inline u_ck_resultado\"><input type=\"checkbox\" name=\"u_ck_resultado\" value=\"\"><span class=\"glyphicon glyphicon-trash\" style=\"font-size: 25px;\"></span></label>
                   </td>
                 </tr>
                 <tr>
@@ -240,10 +272,12 @@
           $(\".u_ck_alumno input[type=checkbox]\").prop('disabled',true); //alumno
           $(\".u_ck_curso input[type=checkbox]\").prop('disabled',true);  //curso
           $(\".u_ck_docente input[type=checkbox]\").prop('disabled',true);  //docente
+          $(\".u_ck_estado input[type=checkbox]\").prop('disabled',true);  //estado
           $(\".u_ck_grupo input[type=checkbox]\").prop('disabled',true);  //grupo
           $(\".u_ck_nivel input[type=checkbox]\").prop('disabled',true);  //niveles
           $(\".u_ck_nota input[type=checkbox]\").prop('disabled',true);  //notas
           $(\".u_ck_responsable input[type=checkbox]\").prop('disabled',true);  //responsable
+          $(\".u_ck_resultado input[type=checkbox]\").prop('disabled',true);  //resultado
           $(\".u_ck_tipos_cursos input[type=checkbox]\").prop('disabled',true);  //tipos cursos
           $(\".u_ck_tipo_usuarios input[type=checkbox]\").prop('disabled',true);  //tipos usuarios
           $(\".u_ck_usuarios input[type=checkbox]\").prop('disabled',true);  //usuarios
@@ -251,10 +285,12 @@
           u_control_radio('u_radio_alumno','u_ck_alumno');  //radio_alumno
           u_control_radio('u_radio_curso','u_ck_curso'); //radio_curso
           u_control_radio('u_radio_docente','u_ck_docente'); //radio_docente
+          u_control_radio('u_radio_estado','u_ck_estado'); //radio_estado
           u_control_radio('u_radio_grupo','u_ck_grupo');  //radio_grupo
           u_control_radio('u_radio_nivel','u_ck_nivel');  //radio_nivel
           u_control_radio('u_radio_nota','u_ck_nota');  //radio_nota
           u_control_radio('u_radio_responsable','u_ck_responsable');  //radio_responsable
+          u_control_radio('u_radio_resultado','u_ck_resultado');  //radio_resultado
           u_control_radio('u_radio_tipos_cursos','u_ck_tipos_cursos');  //radio_tipos_cursos
           u_control_radio('u_radio_tipo_usuarios','u_ck_tipo_usuarios'); //radio_tipo_usuarios
           u_control_radio('u_radio_usuarios','u_ck_usuarios');
@@ -279,10 +315,12 @@
        llamar_permisos('alumno',$id,'u_ck_alumno','u_radio_alumno');
        llamar_permisos('curso',$id,'u_ck_curso','u_radio_curso');
        llamar_permisos('docente',$id,'u_ck_docente','u_radio_docente');
+       llamar_permisos('estado',$id,'u_ck_estado','u_radio_estado');
        llamar_permisos('grupo',$id,'u_ck_grupo','u_radio_grupo');
        llamar_permisos('nivel',$id,'u_ck_nivel','u_radio_nivel');
        llamar_permisos('nota',$id,'u_ck_nota','u_radio_nota');
        llamar_permisos('responsable',$id,'u_ck_responsable','u_radio_responsable');
+       llamar_permisos('resultado',$id,'u_ck_resultado','u_radio_resultado');
        llamar_permisos('tipo_curso',$id,'u_ck_tipos_cursos','u_radio_tipos_cursos');
        llamar_permisos('tipo_usuario',$id,'u_ck_tipo_usuarios','u_radio_tipo_usuarios');
        llamar_permisos('usuario',$id,'u_ck_usuarios','u_radio_usuarios');

@@ -41,4 +41,17 @@
     }
   }
 
+  function verificar_formato_correo($cadena)
+  {
+    if(preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*(@gmail.com)$/",$cadena))
+    {
+      return true;
+    }else
+    {
+      echo "<script>
+              Mensaje_Warning(\"Correo no contiene el formato exigido\");
+            </script>";
+    }
+  }
+
 ?>

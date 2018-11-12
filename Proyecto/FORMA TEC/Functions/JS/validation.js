@@ -36,5 +36,13 @@ function verificar_contraseña_complejidad(cadena)
 
 function verificar_formato_correo(cadena)
 {
+  var valor = cadena;
+  var expreg = /^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*(@gmail.com)$/;
 
+  if(expreg.test(valor))
+  {
+   return true;
+  }else{
+    return false;
+  }
 }

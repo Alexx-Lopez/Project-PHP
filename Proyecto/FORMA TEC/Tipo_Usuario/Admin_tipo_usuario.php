@@ -47,10 +47,12 @@
       $(".ck_alumno input[type=checkbox]").prop('checked',true);
       $(".ck_curso input[type=checkbox]").prop('checked',true);
       $(".ck_docente input[type=checkbox]").prop('checked',true);
+      $(".ck_estado input[type=checkbox]").prop('checked',true);
       $(".ck_grupo input[type=checkbox]").prop('checked',true);
       $(".ck_nivel input[type=checkbox]").prop('checked',true);
       $(".ck_nota input[type=checkbox]").prop('checked',true);
       $(".ck_responsable input[type=checkbox]").prop('checked',true);
+      $(".ck_resultado input[type=checkbox]").prop('checked',true);
       $(".ck_tipos_cursos input[type=checkbox]").prop('checked',true);
       $(".ck_tipo_usuarios input[type=checkbox]").prop('checked',true);
       $(".ck_usuarios input[type=checkbox]").prop('checked',true);
@@ -63,10 +65,12 @@
     $(".ck_alumno input[type=checkbox]").prop('disabled',true); //alumno
     $(".ck_curso input[type=checkbox]").prop('disabled',true);  //curso
     $(".ck_docente input[type=checkbox]").prop('disabled',true);  //docente
+    $(".ck_estado input[type=checkbox]").prop('disabled',true);  //estado
     $(".ck_grupo input[type=checkbox]").prop('disabled',true);  //grupo
     $(".ck_nivel input[type=checkbox]").prop('disabled',true);  //niveles
     $(".ck_nota input[type=checkbox]").prop('disabled',true);  //notas
     $(".ck_responsable input[type=checkbox]").prop('disabled',true);  //responsable
+    $(".ck_resultado input[type=checkbox]").prop('disabled',true);  //resultado
     $(".ck_tipos_cursos input[type=checkbox]").prop('disabled',true);  //tipos cursos
     $(".ck_tipo_usuarios input[type=checkbox]").prop('disabled',true);  //tipos usuarios
     $(".ck_usuarios input[type=checkbox]").prop('disabled',true);  //usuarios
@@ -75,10 +79,12 @@
     control_radio('radio_alumno','ck_alumno');  //radio_alumno
     control_radio('radio_curso','ck_curso'); //radio_curso
     control_radio('radio_docente','ck_docente'); //radio_docente
+    control_radio('radio_estado','ck_estado'); //radio_estado
     control_radio('radio_grupo','ck_grupo');  //radio_grupo
     control_radio('radio_nivel','ck_nivel');  //radio_nivel
     control_radio('radio_nota','ck_nota');  //radio_nota
     control_radio('radio_responsable','ck_responsable');  //radio_responsable
+    control_radio('radio_resultado','ck_resultado');  //radio_responsable
     control_radio('radio_tipos_cursos','ck_tipos_cursos');  //radio_tipos_cursos
     control_radio('radio_tipo_usuarios','ck_tipo_usuarios'); //radio_tipo_usuarios
     control_radio('radio_usuarios','ck_usuarios');
@@ -233,6 +239,22 @@
               </tr>
               <tr>
                 <td>
+                  Estado:
+                </td>
+                <td>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="total" checked>Total</label>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_estado"><input type="radio" name="radio_estado" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_estado"><input type="checkbox" name="ck_estado" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   Grupo
                 </td>
                 <td>
@@ -293,6 +315,22 @@
                   <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
                   <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
                   <label class="checkbox-inline ck_responsable"><input type="checkbox" name="ck_responsable" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Resultado
+                </td>
+                <td>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="total" checked>Total</label>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="parcial" disabled>Parcial</label>
+                  <label class="radio-inline radio_resultado"><input type="radio" name="radio_resultado" value="denegado" >Denegado</label>
+                </td>
+                <td style="text-align:center;">
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><i class="material-icons" style="font-size: 30px;">note_add</i></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-list-alt" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-refresh" style="font-size: 25px;"></span></label>
+                  <label class="checkbox-inline ck_resultado"><input type="checkbox" name="ck_resultado" value=""><span class="glyphicon glyphicon-trash" style="font-size: 25px;"></span></label>
                 </td>
               </tr>
               <tr>

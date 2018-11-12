@@ -18,6 +18,7 @@
   {
     $fila = $resultado->fetch_assoc();
     $usuario=$fila['username'];
+    $email=$fila['email'];
     $id_categoria=$fila['id_tipo_usuario'];
     $salida.=
     "<!-- Modal 2-->
@@ -44,6 +45,10 @@
                 <tr>
                   <td><b>Nombre:</b></td>
                   <td><input type=\"text\" class=\"form-control\" name=\"name_update\" id=\"name_update\" value=\"$usuario\" size=\"40\"></td>
+                </tr>
+                <tr>
+                  <td><b>Correo Electrónico:</b></td>
+                  <td><input type=\"\" class=\"form-control\" name=\"email_update\" id=\"email_update\" value=\"$email\" size=\"40\"></td>
                 </tr>
                 <tr>
                   <td><b>Contraseña:</b></td>

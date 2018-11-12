@@ -32,6 +32,11 @@ if(verificar_empty('v_docente'))
   $bandera=false;
 }
 
+if(verificar_empty('v_estado'))
+{
+  $bandera=false;
+}
+
 if(verificar_empty('v_grupo'))
 {
   $bandera=false;
@@ -48,6 +53,11 @@ if(verificar_empty('v_nota'))
 }
 
 if(verificar_empty('v_responsable'))
+{
+  $bandera=false;
+}
+
+if(verificar_empty('v_resultado'))
 {
   $bandera=false;
 }
@@ -81,10 +91,12 @@ if($bandera==false)
   $v_alumno=json_decode($_POST['v_alumno']);
   $v_curso=json_decode($_POST['v_curso']);
   $v_docente=json_decode($_POST['v_docente']);
+  $v_estado=json_decode($_POST['v_estado']);
   $v_grupo=json_decode($_POST['v_grupo']);
   $v_nivel=json_decode($_POST['v_nivel']);
   $v_nota=json_decode($_POST['v_nota']);
   $v_responsable=json_decode($_POST['v_responsable']);
+  $v_resultado=json_decode($_POST['v_resultado']);
   $v_tipo_curso=json_decode($_POST['v_tipo_curso']);
   $v_tipo_usuario=json_decode($_POST['v_tipo_usuario']);
   $v_usuario=json_decode($_POST['v_usuario']);
@@ -129,6 +141,11 @@ if($bandera==false)
           $bandera3=false;
         }
 
+        if(!insertar_permisos('estado',$v_docente,$id_tipo))
+        {
+          $bandera3=false;
+        }
+
         if(!insertar_permisos('grupo',$v_grupo,$id_tipo))
         {
           $bandera3=false;
@@ -145,6 +162,11 @@ if($bandera==false)
         }
 
         if(!insertar_permisos('responsable',$v_responsable,$id_tipo))
+        {
+          $bandera3=false;
+        }
+
+        if(!insertar_permisos('resultado',$v_responsable,$id_tipo))
         {
           $bandera3=false;
         }
