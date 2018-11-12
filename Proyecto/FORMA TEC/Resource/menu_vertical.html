@@ -10,20 +10,30 @@
   <div class="menu-list">
 
     <ul id="menu-content" class="menu-content collapse out">
-
+      <!--
       <li>
         <a href="#">
           <i class="fa fa-user fa-lg"></i> Perfil
         </a>
       </li>
+      -->
 
-      <li>
-        <a href=""><i class="fas fa-book-reader" style="font-size: 16px;"></i> Alumnos</a>
+      <li data-toggle="collapse" data-target="#M_alumnos">
+        <a href="#">
+          <i class="fas fa-book-reader" style="font-size: 16px;"></i> Alumnos<span class="arrow"></span>
+        </a>
       </li>
+      <ul class="sub-menu collapse" id="M_alumnos">
+        <li><a href="">Alumnos</a></li>
+        <li><a href="">Responsable</a></li>
+        <li><a href="">Estado</a></li>
+        <li><a href="">Resultado</a></li>
+        <li><a href="../Notas/Admin_Nota.php">Nota</a></li>
+      </ul>
 
       <li data-toggle="collapse" data-target="#M_usuarios">
         <a href="#">
-          <i class="fa fa-users fa-lg"></i> Usuarios
+          <i class="fa fa-users fa-lg"></i> Usuarios<span class="arrow"></span>
         </a>
       </li>
       <ul class="sub-menu collapse" id="M_usuarios">
@@ -31,32 +41,58 @@
         <li><a href="../Tipo_Usuario/Admin_tipo_usuario.php">Tipo de Usuarios</a></li>
       </ul>
 
+      <!--
       <li data-toggle="collapse" data-target="#cursos">
         <a href="#">
           <i class="fas fa-award" style="font-size: 17px;"></i> Cursos<span class="arrow"></span>
         </a>
       </li>
-
       <ul class="sub-menu collapse" id="cursos">
         <li><a href="#">Microsoft</a></li>
         <li><a href="#">CISCO</a></li>
       </ul>
+      -->
+      <li>
+        <a href="../Docente/Admin_Docente.php">
+          <i class="fas fa-chalkboard-teacher" style="font-size: 17px;"></i> Docente
+        </a>
+      </li>
 
+      <li>
+        <a href="../Curso/Admin_Curso.php">
+          <i class="fas fa-award" style="font-size: 17px;"></i> Cursos
+        </a>
+      </li>
+
+      <li>
+        <a href="../Grupo/Admin_Grupo.php">
+          <i class="fas fa-building" style="font-size: 17px;"></i> Grupos
+        </a>
+      </li>
+
+      <!--
       <li>
         <a href=""><i class="fa fa-calendar" style="font-size: 16px;"></i> Cronograma de Actividades</a>
       </li>
+      -->
 
+      <!--
       <li>
         <a href=""><i class="fa fa-bar-chart" style="font-size: 18px;"></i> Estadísticas</a>
       </li>
+      -->
 
+      <!--
       <li>
         <a href=""><i class="fa fa-bullhorn" style="font-size:16px"></i> Publicaciones</a>
       </li>
+      -->
 
+      <!--
       <li>
         <a href=""><i class="fas fa-envelope" style="font-size: 16px;"></i> Enviar Mensaje</a>
       </li>
+      -->
     </ul>
   </div>
 </div>

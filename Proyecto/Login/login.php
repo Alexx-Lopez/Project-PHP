@@ -37,6 +37,8 @@
         <input  type="password" class="form-control" name="password" placeholder="Contraseña">
       </div>
       <br>
+      <a href="Recuperacion/recuperar_contra.php">Restaurar Contraseña</a>
+      <br>
       <input type="submit" class="btn btn-success boton_login_entrar" value="Entrar" id="btn" name="btn">
     </form>
     <?php
