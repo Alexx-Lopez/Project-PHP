@@ -158,17 +158,15 @@ function actualizar_datos(tipo_curso_id)
 
     if(bandera2==true)
     {
-     //codigo para validar datos del lado del cliente
-     $.ajax({
-      url:'Process/PHP/actualizar_tipo_curso.php',
-      type:'POST',
-      dataType:'html',
-      data:"id="+tipo_curso_id,
-      success: function(respuesta) {
-        $("#notificaciones").html(respuesta);
-      }
-    });
+      $.ajax({
+        url:'Process/PHP/actualizar_tipo_curso.php',
+        type:'POST',
+        dataType:'html',
+        data:"tipo_curso="+tipo_curso+"&id="+id,
+        success: function(respuesta) {
+          $("#notificaciones").html(respuesta);
+        }
+      });
     }
   }
-  
 }

@@ -1,10 +1,10 @@
 <?php session_start()?>
 <?php
-  /*include '../Functions/PHP/CN.php';
+  include '../Functions/PHP/CN.php';
   require '../../Login/verificar_sesion.php';
 
   //se verifica que el usuario tenga permiso total a la pagina visitada
-  verificar_permisos_usuarios('tipo_cursos');*/
+  verificar_permisos_usuarios('tipo_cursos');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -73,9 +73,9 @@
           <img src="../../Images/Design/load.gif">
         </div>
 
-        <!--se presentan las opciones del tipo curso-->
+        <!--se presentan las opciones del Notas-->
         <div id="opcion">
-          <p style="text-align: center;"><i class="fab fa-typo3" style="font-size:200px;"></i></p>
+          <p style="text-align: center;"><i class="fa fa-sort" style="font-size:200px;"></i></p>
           <br>
           <button type="button" class="btn boton_opciones boton_buscar" id="boton_buscar"><span class="glyphicon glyphicon-search"></span></button>
           <button type="button" class="btn boton_opciones boton_nuevo" id="boton_nuevo"><span class="glyphicon glyphicon-plus"></span></button>
