@@ -136,14 +136,45 @@ function seleccionar_datos(id)
 
 function actualizar_datos(nota_id)
 {
-  //codigo para validar datos del lado del cliente
+  var bandera=true;
+  var bandera2=true;
+
+  //se toman los valores de los input
+  var id=nota_id;
+  var nota=$("#nota_update").val();
+  var grupo=$("#grupo_update").val();
+  var alumno=$("#alumno_update").val();
+  var resultado=$("#resultado_update").val();
+
+
+  //se verifican que los campos no esten solos
+  if(nota=="" || nota==null || grupo=="" || grupo==null || alumno=="" || alumno==null || resultado=="" || resultado==null)
+  {
+    Mensaje_Error("No se permiten campos vacios");
+    bandera=false;
+  }
+  //se verificar que los datos tengan el formato requerido
+  if(bandera==true)
+  {
+    //verificar que el numero
+
+    if(!verificar_numero(nota))
+    {
+      Mensaje_Warning("Solo se permiten numeros positivos y numeros entre 0 y 10");
+      bandera2=false;
+    }
+
+    if(bandera2==true)
+    {
       $.ajax({
         url:'Process/PHP/actualizar_nota.php',
         type:'POST',
         dataType:'html',
-        data:"id="+nota_id,
+        data:"nota="+nota+"&grupo="+grupo+"&alumno="+alumno+"&resultado="+resultado+"&id="+id,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }
       });
+    }
+  }
 }

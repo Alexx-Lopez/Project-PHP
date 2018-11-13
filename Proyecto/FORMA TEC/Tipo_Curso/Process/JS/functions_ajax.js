@@ -148,7 +148,6 @@ function actualizar_datos(tipo_curso_id)
   //se verificar que los datos tengan el formato requerido
   if(bandera==true)
   {
-    //verificar que el numero
 
     if(!verificar_texto(tipo_curso))
     {
