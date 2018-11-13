@@ -12,7 +12,7 @@ $campos="";
 if(verificar_empty('tipo_curso'))
 {
   $bandera=false;
-  $campos.="tipo_curso,";
+  $campos.="Nombre del Tipo,";
 }
 
 if($bandera==false)

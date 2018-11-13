@@ -218,10 +218,10 @@
   });
 
   //variable que almacena el id de la seleccion de la tabla
-  var curso_id;
+  var tipo_curso_id;
   function asignar_id(identificador)
   {
-    curso_id=identificador;
+    tipo_curso_id=identificador;
   }
 
 

@@ -87,13 +87,13 @@ function insertar_datos()
 
 function eliminar_datos()
 {
-  if(curso_id!=null && curso_id!="")
+  if(tipo_curso_id!=null && tipo_curso_id!="")
   {
     $.ajax({
       url:'Process/PHP/eliminar_curso.php',
       type:'POST',
       dataType:'html',
-      data:"id="+curso_id,
+      data:"id="+tipo_curso_id,
       success: function(respuesta){
         $("#notificaciones").html(respuesta);
       }
@@ -134,14 +134,14 @@ function seleccionar_datos(id)
 /*************************************************************************/
 
 
-function actualizar_datos(curso_id)
+function actualizar_datos(tipo_curso_id)
 {
   //codigo para validar datos del lado del cliente
       $.ajax({
         url:'Process/PHP/actualizar_curso.php',
         type:'POST',
         dataType:'html',
-        data:"id="+curso_id,
+        data:"id="+tipo_curso_id,
         success: function(respuesta) {
           $("#notificaciones").html(respuesta);
         }

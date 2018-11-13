@@ -8,15 +8,6 @@ $bandera2=true;
 
 $campos="";
 
-/*if(verificar_empty('$tipo_curso'))
-{
-  $bandera=false;
-  $campos.="Nombre del tipo,";
-}else
-{
-  $_SESSION['res_tipo_curso']=$_POST['tipo_curso'];
-}*/
-
 if(verificar_empty('tipo_curso'))
 {
   $bandera=false;
@@ -49,7 +40,7 @@ if($bandera==false)
     $objeto_con->Connect();
 
     //primero se verifica que no exista algun registro con ese mismo nombre diferente al que se pretende actualizar
-    $sql="SELECT * from id_tipo_curso WHERE nombre_categoria = '$tipo_curso'";
+    $sql="SELECT * from tipo_curso WHERE nombre_categoria = '$tipo_curso'";
     $regis=$objeto_con->conexion->query($sql);
 
     //si no existe otro registro registro se procede a la actualizacion en caso contrario se muestra un mensaje
