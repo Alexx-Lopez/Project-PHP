@@ -1,10 +1,10 @@
 <?php session_start()?>
 <?php
-  include '../Functions/PHP/CN.php';
+  /*include '../Functions/PHP/CN.php';
   require '../../Login/verificar_sesion.php';
 
   //se verifica que el usuario tenga permiso total a la pagina visitada
-  verificar_permisos_usuarios('curso');
+  verificar_permisos_usuarios('tipo_cursos');*/
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,11 +34,11 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
   <script src="../Functions/JS/Messages.js"></script>
-  <script src="../Functions/JS/validation.js"></script>
 
   <script type="text/javascript">
     //script que necesiten realizar
   </script>
+  <script src="../Functions/JS/validation.js"></script>
 
   <style>
     /*estilos que deseen crear o modificar*/
@@ -65,7 +65,7 @@
   <!--contenedor-->
   <div id="cont" class="contenedor" style="height:auto;">
     <div class="panel panel-primary" style="height: 100%;">
-      <div class="panel-heading"><p style="text-align:center;font-size: 20px;"><strong>Administración de Cursos</strong></p></div>
+      <div class="panel-heading"><p style="text-align:center;font-size: 20px;"><strong>Administración de Tipos de Cursos</strong></p></div>
       <div class="panel-body">
 
         <!--preloader-->
@@ -73,9 +73,9 @@
           <img src="../../Images/Design/load.gif">
         </div>
 
-        <!--se presentan las opciones del usuario-->
+        <!--se presentan las opciones del Notas-->
         <div id="opcion">
-          <p style="text-align: center;"><i class="fa fa-book" style="font-size:200px;"></i></p>
+          <p style="text-align: center;"><i class="fa fa-sort" style="font-size:200px;"></i></p>
           <br>
           <button type="button" class="btn boton_opciones boton_buscar" id="boton_buscar"><span class="glyphicon glyphicon-search"></span></button>
           <button type="button" class="btn boton_opciones boton_nuevo" id="boton_nuevo"><span class="glyphicon glyphicon-plus"></span></button>
@@ -108,75 +108,16 @@
         <div id="formulario">
           <i class="fas fa-arrow-circle-left boton_regresar_opcion" style="font-size:30px;" id="regre_nuevo_opcion"></i>
           <form method="post" onsubmit="return false" action="return false">
-            <h3>Añadir Curso</h3>
+            <h3>Añadir Tipo de Cursos</h3>
             <table class="tabla_formulario">
               <!--Maquetado del formulario-->
-
               <tr>
-                <td>ID del curso: </td>
+                <td>Nombre del Tipo: </td>
                 <td>
-                  <input type="text" class="form-control" id="id_curso" name="id_curso" size="40">
+                  <input type="text" class="form-control" id="tipo_curso" name="tipo_curso" size="40">
                 </td>
               </tr>
 
-              <tr>
-                <td>Nombre del curso: </td>
-                <td>
-                  <input type="text" class="form-control" id="nombre_curso" name="nombre_curso" size="40">
-                </td>
-              </tr>
-                
-                <tr>
-                <td>Descripcion: </td>
-                <td>
-                <textarea class="form-control" id="descripcion" name ="descripcion" rows="9" cols="22"></textarea>
-                </td>
-                </tr>
-
-                <tr>
-                <td>Tipo de Curso: </td>
-                <td>
-                  <?php
-                  $objeto_con=new Conexion();
-                  $objeto_con->Connect();
-
-                  $sql="select * from tipo_curso";
-                  $result=mysqli_query($objeto_con->conexion,$sql);
-                  echo "<select class=\"form-control\" name='tipo_curso' id='tipo_curso'>";
-
-                  echo "<option value=\"\" selected disable hidden></option>";
-                  while($fila = mysqli_fetch_array($result)){
-                    echo "<option>".$fila['nombre_categoria']."</option>";
-                  }
-                  echo "</select>";
-
-                  $objeto_con->Disconnect();
-                  ?>
-                </td>
-                </tr>
-
-                <tr>
-                <td>Tipo de Nivel: </td>
-                <td>
-                  <?php
-                  $objeto_con=new Conexion();
-                  $objeto_con->Connect();
-
-                  $sql="select * from nivel";
-                  $result=mysqli_query($objeto_con->conexion,$sql);
-                  echo "<select class=\"form-control\" name='nivel' id='nivel'>";
-
-                  echo "<option value=\"\" selected disable hidden></option>";
-                  while($fila = mysqli_fetch_array($result)){
-                    echo "<option>".$fila['nombre_nivel']."</option>";
-                  }
-                  echo "</select>";
-
-                  $objeto_con->Disconnect();
-                  ?>
-                </td>
-                </tr>
-                
             </table>
             <br>
             <br>
@@ -218,10 +159,10 @@
   });
 
   //variable que almacena el id de la seleccion de la tabla
-  var curso_id;
+  var tipo_curso_id;
   function asignar_id(identificador)
   {
-    curso_id=identificador;
+    tipo_curso_id=identificador;
   }
 
 
