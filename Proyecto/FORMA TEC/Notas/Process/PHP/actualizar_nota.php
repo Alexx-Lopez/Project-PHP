@@ -17,31 +17,31 @@ if(verificar_empty('nota'))
   $_SESSION['res_nota']=$_POST['nota'];
 }
 
-if(verificar_empty('id_grupo'))
+if(verificar_empty('grupo'))
 {
   $bandera=false;
   $campos.="Grupo, ";
 }else
 {
-  $_SESSION['res_id_grupo']=$_POST['id_grupo'];
+  $_SESSION['res_grupo']=$_POST['grupo'];
 }
 
-if(verificar_empty('id_alumno'))
+if(verificar_empty('alumno'))
 {
   $bandera=false;
   $campos.="Alumno, ";
 }else
 {
-  $_SESSION['res_id_alumno']=$_POST['id_alumno'];
+  $_SESSION['res_alumno']=$_POST['alumno'];
 }
 
-if(verificar_empty('id_resultado'))
+if(verificar_empty('resultado'))
 {
   $bandera=false;
   $campos.="Resultado, ";
 }else
 {
-  $_SESSION['res_id_resultado']=$_POST['id_resultado'];
+  $_SESSION['res_resultado']=$_POST['resultado'];
 }
 
 if($bandera==false)
@@ -54,19 +54,13 @@ if($bandera==false)
 {
   //se procede a analizar los textos de los campos que respeten ciertas normas
   $nota=$_POST['nota'];
-  $grupo=$_POST['id_grupo'];
+  $grupo=$_POST['grupo'];
   $id_grupo;
-  $alumno=$_POST['id_alumno'];
+  $alumno=$_POST['alumno'];
   $id_alumno;
-  $resultado=$_POST['id_resultado'];
+  $resultado=$_POST['resultado'];
   $id_resultado;
   $id=$_POST['id'];
-
-
-  if(!texto($nota))
-  {
-    $bandera2=false;
-  }
 
   //en el caso todo cumpla con lo estipulado se procede a realizar el ingreso
   if($bandera2){

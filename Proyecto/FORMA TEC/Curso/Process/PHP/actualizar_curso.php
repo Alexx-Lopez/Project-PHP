@@ -73,17 +73,6 @@ if($bandera==false)
   $id_tipo_curso;
   $id_nivel;
 
-
-  if(!texto($id_curso))
-  {
-    $bandera2=false;
-  }
-
-  if(!texto($nombre_curso))
-  {
-    $bandera2=false;
-  }
-
   //en el caso todo cumpla con lo estipulado se procede a realizar el ingreso
   if($bandera2){
     $objeto_con=new Conexion();

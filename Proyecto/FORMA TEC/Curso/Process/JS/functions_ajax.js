@@ -136,6 +136,41 @@ function seleccionar_datos(id)
 
 function actualizar_datos(tipo_curso_id)
 {
+  var bandera=true;
+  var bandera2=true;
+
+  var id=tipo_curso_id;
+  var id_curso=$("#id_curso").val();
+  var nombre_curso=$("#nombre_curso").val();
+  var descripcion=$("#descripcion").val();
+  var tipo_curso=$("#tipo_curso").val();
+  var nivel=$("#nivel").val();
+
+  //se procede a verificar que los datos cumplan con lo solicitado desde el lado del cliente
+
+  //se verifican que los campos no esten solos
+  if(id_curso=="" || id_curso==null || nombre_curso=="" || nombre_curso==null || descripcion=="" || descripcion==null || tipo_curso=="" || tipo_curso==null || nivel=="" || nivel==null)
+  {
+    Mensaje_Error("No se permiten campos vacios");
+    bandera=false;
+  }
+
+  //se verificar que los datos tengan el formato requerido
+  if(bandera==true)
+  {
+    if(bandera2==true)
+    {
+      $.ajax({
+        url:'Process/PHP/actualizar_curso.php',
+        type:'POST',
+        dataType:'html',
+        data:"id_curso="+id_curso+"&nombre_curso="+nombre_curso+"&descripcion="+descripcion+"&tipo_curso="+tipo_curso+"&nivel="+nivel+"&id"+id,
+        success: function(respuesta) {
+          $("#notificaciones").html(respuesta);
+        }
+      });
+    }
+  }
   //codigo para validar datos del lado del cliente
       $.ajax({
         url:'Process/PHP/actualizar_curso.php',

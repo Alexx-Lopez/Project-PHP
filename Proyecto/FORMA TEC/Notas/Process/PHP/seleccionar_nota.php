@@ -115,8 +115,6 @@
     $salida.=       "</select>
                   </td>
                 </tr>
-                 
-
 
               </table>
               <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" onclick=\"actualizar_datos($id);\">Actualizar</button>

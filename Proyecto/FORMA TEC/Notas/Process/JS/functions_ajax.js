@@ -156,7 +156,6 @@ function actualizar_datos(nota_id)
   //se verificar que los datos tengan el formato requerido
   if(bandera==true)
   {
-    //verificar que el numero
 
     if(!verificar_numero(nota))
     {

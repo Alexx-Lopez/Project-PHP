@@ -1,10 +1,10 @@
 <?php session_start()?>
 <?php
-  /*include '../Functions/PHP/CN.php';
+  include '../Functions/PHP/CN.php';
   require '../../Login/verificar_sesion.php';
 
   //se verifica que el usuario tenga permiso total a la pagina visitada
-  verificar_permisos_usuarios('curso');*/
+  verificar_permisos_usuarios('curso');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
